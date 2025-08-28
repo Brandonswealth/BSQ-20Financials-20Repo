@@ -271,30 +271,62 @@ export default function Services() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl lg:text-4xl font-bold mb-4">💰 Payment Options</h2>
+              <h2 className="text-3xl lg:text-4xl font-bold mb-4">Payment Options</h2>
               <p className="text-xl text-gray-600">Multiple convenient ways to get started today</p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
               <Card className="p-8">
                 <CardHeader className="text-center pb-6">
                   <DollarSign className="h-12 w-12 text-green-500 mx-auto mb-4" />
-                  <CardTitle className="text-2xl">Pay Now</CardTitle>
+                  <CardTitle className="text-2xl">Instant Payment</CardTitle>
                   <CardDescription>Secure payment methods available</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4">
-                    <div className="flex items-center p-3 border rounded-lg">
+                    <div className="flex items-center p-3 border rounded-lg hover:border-brand-blue transition-colors">
                       <Zap className="h-6 w-6 text-yellow-500 mr-3" />
                       <span className="font-medium">Zelle</span>
                     </div>
-                    <div className="flex items-center p-3 border rounded-lg">
+                    <div className="flex items-center p-3 border rounded-lg hover:border-brand-blue transition-colors">
                       <CreditCard className="h-6 w-6 text-blue-500 mr-3" />
-                      <span className="font-medium">Stripe</span>
+                      <span className="font-medium">Credit/Debit Cards</span>
                     </div>
-                    <div className="flex items-center p-3 border rounded-lg">
+                    <div className="flex items-center p-3 border rounded-lg hover:border-brand-blue transition-colors">
                       <Smartphone className="h-6 w-6 text-green-600 mr-3" />
                       <span className="font-medium">CashApp</span>
+                    </div>
+                    <div className="flex items-center p-3 border rounded-lg hover:border-brand-blue transition-colors">
+                      <DollarSign className="h-6 w-6 text-purple-600 mr-3" />
+                      <span className="font-medium">PayPal</span>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="p-8 border-2 border-brand-blue">
+                <CardHeader className="text-center pb-6">
+                  <Phone className="h-12 w-12 text-brand-blue mx-auto mb-4" />
+                  <CardTitle className="text-2xl">Buy Now, Pay Later</CardTitle>
+                  <CardDescription>Flexible payment plans available</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-4">
+                    <div className="flex items-center p-3 border rounded-lg hover:border-brand-blue transition-colors">
+                      <span className="font-bold text-purple-600 mr-3">AP</span>
+                      <span className="font-medium">Afterpay</span>
+                    </div>
+                    <div className="flex items-center p-3 border rounded-lg hover:border-brand-blue transition-colors">
+                      <span className="font-bold text-pink-600 mr-3">K</span>
+                      <span className="font-medium">Klarna</span>
+                    </div>
+                    <div className="flex items-center p-3 border rounded-lg hover:border-brand-blue transition-colors">
+                      <span className="font-bold text-blue-600 mr-3">A</span>
+                      <span className="font-medium">Affirm</span>
+                    </div>
+                    <div className="flex items-center p-3 border rounded-lg hover:border-brand-blue transition-colors">
+                      <span className="font-bold text-green-600 mr-3">SP</span>
+                      <span className="font-medium">Sezzle</span>
                     </div>
                   </div>
                 </CardContent>
@@ -302,19 +334,23 @@ export default function Services() {
 
               <Card className="p-8">
                 <CardHeader className="text-center pb-6">
-                  <Phone className="h-12 w-12 text-brand-blue mx-auto mb-4" />
-                  <CardTitle className="text-2xl">Payment Plans</CardTitle>
-                  <CardDescription>Flexible payment options available</CardDescription>
+                  <Star className="h-12 w-12 text-orange-500 mx-auto mb-4" />
+                  <CardTitle className="text-2xl">Custom Plans</CardTitle>
+                  <CardDescription>Tailored payment solutions</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4">
                     <div className="p-4 bg-gray-50 rounded-lg">
-                      <p className="font-medium mb-2">Ask about payment plans</p>
-                      <p className="text-gray-600">Just reply "Plan" to inquire</p>
+                      <p className="font-medium mb-2">Monthly Installments</p>
+                      <p className="text-gray-600 text-sm">3, 6, or 12 month options</p>
                     </div>
                     <div className="p-4 bg-gray-50 rounded-lg">
-                      <p className="font-medium mb-2">Next Steps</p>
-                      <p className="text-gray-600">Send screenshot once paid, we'll send onboarding link</p>
+                      <p className="font-medium mb-2">Corporate Billing</p>
+                      <p className="text-gray-600 text-sm">Net 30/60/90 terms available</p>
+                    </div>
+                    <div className="p-4 bg-gray-50 rounded-lg">
+                      <p className="font-medium mb-2">Family Plans</p>
+                      <p className="text-gray-600 text-sm">Multiple member discounts</p>
                     </div>
                   </div>
                 </CardContent>
@@ -368,7 +404,7 @@ export default function Services() {
                   </div>
                 </div>
                 <div className="mt-8 text-center">
-                  <p className="mb-4">También ofrecemos apartamentos listos para mudarse — pregúntanos.</p>
+                  <p className="mb-4">También ofrecemos apartamentos listos para mudarse ��� pregúntanos.</p>
                   <Button className="bg-gradient-to-r from-brand-blue-light to-brand-blue-dark">
                     Más Información en Español
                   </Button>
