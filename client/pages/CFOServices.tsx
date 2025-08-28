@@ -158,9 +158,11 @@ export default function CFOServices() {
                     Basic compliance setup
                   </li>
                 </ul>
-                <Button className="w-full bg-gradient-to-r from-brand-blue-light to-brand-blue-dark">
-                  Start My Business
-                  <ArrowRight className="ml-2 h-4 w-4" />
+                <Button className="w-full bg-gradient-to-r from-brand-blue-light to-brand-blue-dark" asChild>
+                  <a href="/checkout?service=business-starter">
+                    Start My Business
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </a>
                 </Button>
               </CardContent>
             </Card>
@@ -210,9 +212,11 @@ export default function CFOServices() {
                     Business plan framework
                   </li>
                 </ul>
-                <Button className="w-full bg-orange-600 hover:bg-orange-700">
-                  Boost My Credibility
-                  <ArrowRight className="ml-2 h-4 w-4" />
+                <Button className="w-full bg-orange-600 hover:bg-orange-700" asChild>
+                  <a href="/checkout?service=credibility-booster">
+                    Boost My Credibility
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </a>
                 </Button>
               </CardContent>
             </Card>
@@ -262,9 +266,11 @@ export default function CFOServices() {
                     Due diligence preparation
                   </li>
                 </ul>
-                <Button className="w-full text-black hover:opacity-90" style={{backgroundColor: '#FFD700'}}>
-                  Get Investor Ready
-                  <ArrowRight className="ml-2 h-4 w-4" />
+                <Button className="w-full text-black hover:opacity-90" style={{backgroundColor: '#FFD700'}} asChild>
+                  <a href="/checkout?service=investor-ready">
+                    Get Investor Ready
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </a>
                 </Button>
               </CardContent>
             </Card>
@@ -342,9 +348,11 @@ export default function CFOServices() {
                   🎯 Guarantee: $100K+ in funding opportunities or your money back
                 </p>
               </div>
-              <Button className="w-full bg-purple-600 hover:bg-purple-700 text-lg py-6">
-                Get Complete Business Solution
-                <ArrowRight className="ml-2 h-5 w-5" />
+              <Button className="w-full bg-purple-600 hover:bg-purple-700 text-lg py-6" asChild>
+                <a href="/checkout?service=complete-business">
+                  Get Complete Business Solution
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </a>
               </Button>
             </CardContent>
           </Card>
@@ -418,10 +426,10 @@ export default function CFOServices() {
               </CardHeader>
               <CardContent>
                 <ul className="space-y-2 text-left">
-                  <li>• SBA loans</li>
+                  <li>��� SBA loans</li>
                   <li>• Revenue-based financing</li>
                   <li>• Asset-based lending</li>
-                  <li>�� Investor connections</li>
+                  <li>• Investor connections</li>
                 </ul>
               </CardContent>
             </Card>

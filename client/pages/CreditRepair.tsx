@@ -155,9 +155,11 @@ export default function CreditRepair() {
                     Email support
                   </li>
                 </ul>
-                <Button className="w-full bg-green-600 hover:bg-green-700">
-                  Select Basic Plan
-                  <ArrowRight className="ml-2 h-4 w-4" />
+                <Button className="w-full bg-green-600 hover:bg-green-700" asChild>
+                  <a href="/checkout?service=basic-credit">
+                    Select Basic Plan
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </a>
                 </Button>
               </CardContent>
             </Card>
@@ -199,9 +201,11 @@ export default function CreditRepair() {
                     Credit education materials
                   </li>
                 </ul>
-                <Button className="w-full bg-gradient-to-r from-brand-blue-light to-brand-blue-dark">
-                  Select Essentials Plan
-                  <ArrowRight className="ml-2 h-4 w-4" />
+                <Button className="w-full bg-gradient-to-r from-brand-blue-light to-brand-blue-dark" asChild>
+                  <a href="/checkout?service=essentials-credit">
+                    Select Essentials Plan
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </a>
                 </Button>
               </CardContent>
             </Card>
@@ -246,9 +250,11 @@ export default function CreditRepair() {
                     Priority dispute processing
                   </li>
                 </ul>
-                <Button className="w-full bg-purple-600 hover:bg-purple-700">
-                  Select Premium Plan
-                  <ArrowRight className="ml-2 h-4 w-4" />
+                <Button className="w-full bg-purple-600 hover:bg-purple-700" asChild>
+                  <a href="/checkout?service=premium-credit">
+                    Select Premium Plan
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </a>
                 </Button>
               </CardContent>
             </Card>
@@ -318,9 +324,11 @@ export default function CreditRepair() {
                   🎯 Our Guarantee: 100+ point improvement or full refund
                 </p>
               </div>
-              <Button className="w-full text-black hover:opacity-90 text-lg py-6" style={{backgroundColor: '#FFD700'}}>
-                Get Complete Transformation
-                <ArrowRight className="ml-2 h-5 w-5" />
+              <Button className="w-full text-black hover:opacity-90 text-lg py-6" style={{backgroundColor: '#FFD700'}} asChild>
+                <a href="/checkout?service=done-for-you-credit">
+                  Get Complete Transformation
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </a>
               </Button>
             </CardContent>
           </Card>
