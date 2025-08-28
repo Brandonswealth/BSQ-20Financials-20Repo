@@ -1,26 +1,32 @@
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { 
-  CheckCircle, 
-  CreditCard, 
-  Building2, 
+import {
+  CheckCircle,
+  CreditCard,
+  Building2,
   Phone,
   Mail,
   Smartphone,
   DollarSign,
   Zap,
   Star,
-  ArrowRight
+  ArrowRight,
 } from "lucide-react";
 
 export default function Services() {
   return (
     <div className="min-h-screen">
       <Header />
-      
+
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-brand-blue-light to-brand-blue-dark text-white py-20">
         <div className="container mx-auto px-4 text-center">
@@ -31,7 +37,8 @@ export default function Services() {
             Professional Financial Services
           </h1>
           <p className="text-xl mb-8 text-blue-100">
-            Comprehensive credit repair and business financial solutions designed for your success
+            Comprehensive credit repair and business financial solutions
+            designed for your success
           </p>
         </div>
       </section>
@@ -40,8 +47,12 @@ export default function Services() {
       <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold mb-4">Our Service Categories</h2>
-            <p className="text-xl text-gray-600">Choose the service category that fits your needs</p>
+            <h2 className="text-3xl lg:text-4xl font-bold mb-4">
+              Our Service Categories
+            </h2>
+            <p className="text-xl text-gray-600">
+              Choose the service category that fits your needs
+            </p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -49,9 +60,12 @@ export default function Services() {
             <Card className="p-8 hover:shadow-xl transition-shadow">
               <CardHeader className="text-center pb-6">
                 <CreditCard className="h-16 w-16 text-brand-blue mx-auto mb-4" />
-                <CardTitle className="text-3xl mb-4">Personal Credit Repair</CardTitle>
+                <CardTitle className="text-3xl mb-4">
+                  Personal Credit Repair
+                </CardTitle>
                 <CardDescription className="text-lg">
-                  Professional credit restoration services to improve your credit score and financial opportunities
+                  Professional credit restoration services to improve your
+                  credit score and financial opportunities
                 </CardDescription>
               </CardHeader>
               <CardContent>
@@ -74,8 +88,13 @@ export default function Services() {
                   </div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-green-600 mb-2">Starting at $297</div>
-                  <Button className="w-full bg-gradient-to-r from-brand-blue-light to-brand-blue-dark" asChild>
+                  <div className="text-2xl font-bold text-green-600 mb-2">
+                    Starting at $297
+                  </div>
+                  <Button
+                    className="w-full bg-gradient-to-r from-brand-blue-light to-brand-blue-dark"
+                    asChild
+                  >
                     <a href="/credit-repair">
                       View Credit Repair Plans
                       <ArrowRight className="ml-2 h-4 w-4" />
@@ -89,9 +108,12 @@ export default function Services() {
             <Card className="p-8 hover:shadow-xl transition-shadow">
               <CardHeader className="text-center pb-6">
                 <Building2 className="h-16 w-16 text-brand-blue mx-auto mb-4" />
-                <CardTitle className="text-3xl mb-4">Business CFO Services</CardTitle>
+                <CardTitle className="text-3xl mb-4">
+                  Business CFO Services
+                </CardTitle>
                 <CardDescription className="text-lg">
-                  Complete business setup, funding solutions, and ongoing CFO services for growth
+                  Complete business setup, funding solutions, and ongoing CFO
+                  services for growth
                 </CardDescription>
               </CardHeader>
               <CardContent>
@@ -114,8 +136,13 @@ export default function Services() {
                   </div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-brand-blue mb-2">Starting at $499</div>
-                  <Button className="w-full bg-gradient-to-r from-brand-blue-light to-brand-blue-dark" asChild>
+                  <div className="text-2xl font-bold text-brand-blue mb-2">
+                    Starting at $499
+                  </div>
+                  <Button
+                    className="w-full bg-gradient-to-r from-brand-blue-light to-brand-blue-dark"
+                    asChild
+                  >
                     <a href="/cfo-services">
                       View Business Plans
                       <ArrowRight className="ml-2 h-4 w-4" />
@@ -133,8 +160,12 @@ export default function Services() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl lg:text-4xl font-bold mb-4">Payment Options</h2>
-              <p className="text-xl text-gray-600">Multiple convenient ways to get started today</p>
+              <h2 className="text-3xl lg:text-4xl font-bold mb-4">
+                Payment Options
+              </h2>
+              <p className="text-xl text-gray-600">
+                Multiple convenient ways to get started today
+              </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
@@ -142,7 +173,9 @@ export default function Services() {
                 <CardHeader className="text-center pb-6">
                   <DollarSign className="h-12 w-12 text-green-500 mx-auto mb-4" />
                   <CardTitle className="text-2xl">Instant Payment</CardTitle>
-                  <CardDescription>Secure payment methods available</CardDescription>
+                  <CardDescription>
+                    Secure payment methods available
+                  </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4">
@@ -170,7 +203,9 @@ export default function Services() {
                 <CardHeader className="text-center pb-6">
                   <Phone className="h-12 w-12 text-brand-blue mx-auto mb-4" />
                   <CardTitle className="text-2xl">Buy Now, Pay Later</CardTitle>
-                  <CardDescription>Flexible payment plans available</CardDescription>
+                  <CardDescription>
+                    Flexible payment plans available
+                  </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4">
@@ -204,15 +239,21 @@ export default function Services() {
                   <div className="space-y-4">
                     <div className="p-4 bg-gray-50 rounded-lg">
                       <p className="font-medium mb-2">Monthly Installments</p>
-                      <p className="text-gray-600 text-sm">3, 6, or 12 month options</p>
+                      <p className="text-gray-600 text-sm">
+                        3, 6, or 12 month options
+                      </p>
                     </div>
                     <div className="p-4 bg-gray-50 rounded-lg">
                       <p className="font-medium mb-2">Corporate Billing</p>
-                      <p className="text-gray-600 text-sm">Net 30/60/90 terms available</p>
+                      <p className="text-gray-600 text-sm">
+                        Net 30/60/90 terms available
+                      </p>
                     </div>
                     <div className="p-4 bg-gray-50 rounded-lg">
                       <p className="font-medium mb-2">Family Plans</p>
-                      <p className="text-gray-600 text-sm">Multiple member discounts</p>
+                      <p className="text-gray-600 text-sm">
+                        Multiple member discounts
+                      </p>
                     </div>
                   </div>
                 </CardContent>
@@ -222,8 +263,12 @@ export default function Services() {
             {/* Additional Services */}
             <Card className="p-8 bg-gradient-to-r from-brand-blue-light to-brand-blue-dark text-white">
               <CardContent className="text-center">
-                <h3 className="text-2xl font-bold mb-4">Additional Services Available</h3>
-                <p className="text-xl mb-6">We also offer move-in ready apartment placements — just ask!</p>
+                <h3 className="text-2xl font-bold mb-4">
+                  Additional Services Available
+                </h3>
+                <p className="text-xl mb-6">
+                  We also offer move-in ready apartment placements — just ask!
+                </p>
                 <Button className="bg-white text-brand-blue hover:bg-gray-100">
                   Learn More About Housing
                 </Button>
@@ -240,14 +285,22 @@ export default function Services() {
             Ready to Get Started?
           </h2>
           <p className="text-xl mb-8 text-blue-100 max-w-2xl mx-auto">
-            Choose your service category and transform your financial future today
+            Choose your service category and transform your financial future
+            today
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-white text-brand-blue hover:bg-gray-100">
+            <Button
+              size="lg"
+              className="bg-white text-brand-blue hover:bg-gray-100"
+            >
               <Phone className="mr-2 h-5 w-5" />
               Call (555) 123-4567
             </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-brand-blue">
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-white text-white hover:bg-white hover:text-brand-blue"
+            >
               <Mail className="mr-2 h-5 w-5" />
               Schedule Free Consultation
             </Button>

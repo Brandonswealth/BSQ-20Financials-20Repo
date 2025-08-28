@@ -1,12 +1,18 @@
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { 
-  CheckCircle, 
-  Building2, 
-  TrendingUp, 
+import {
+  CheckCircle,
+  Building2,
+  TrendingUp,
   Target,
   Star,
   BarChart3,
@@ -18,14 +24,14 @@ import {
   ArrowRight,
   Globe,
   Briefcase,
-  DollarSign
+  DollarSign,
 } from "lucide-react";
 
 export default function CFOServices() {
   return (
     <div className="min-h-screen">
       <Header />
-      
+
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-brand-blue-light to-brand-blue-dark text-white py-20">
         <div className="container mx-auto px-4">
@@ -36,13 +42,19 @@ export default function CFOServices() {
               </Badge>
               <h1 className="text-4xl lg:text-6xl font-bold mb-6 leading-tight">
                 Business Funding &
-                <span className="block text-yellow-300">Structure Packages</span>
+                <span className="block text-yellow-300">
+                  Structure Packages
+                </span>
               </h1>
               <p className="text-xl mb-8 text-blue-100">
-                Comprehensive business setup, funding solutions, and CFO services 
-                to accelerate your business growth and investor readiness.
+                Comprehensive business setup, funding solutions, and CFO
+                services to accelerate your business growth and investor
+                readiness.
               </p>
-              <Button size="lg" className="bg-white text-brand-blue hover:bg-gray-100">
+              <Button
+                size="lg"
+                className="bg-white text-brand-blue hover:bg-gray-100"
+              >
                 Start Building Your Business
               </Button>
             </div>
@@ -72,9 +84,12 @@ export default function CFOServices() {
       <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold mb-4">Business Growth Process</h2>
+            <h2 className="text-3xl lg:text-4xl font-bold mb-4">
+              Business Growth Process
+            </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Our proven 4-step approach to business structure, funding, and growth
+              Our proven 4-step approach to business structure, funding, and
+              growth
             </p>
           </div>
 
@@ -84,7 +99,9 @@ export default function CFOServices() {
                 <FileText className="h-8 w-8 text-white" />
               </div>
               <h3 className="text-xl font-semibold mb-2">1. Foundation</h3>
-              <p className="text-gray-600">Business registration, EIN, and legal structure setup</p>
+              <p className="text-gray-600">
+                Business registration, EIN, and legal structure setup
+              </p>
             </div>
 
             <div className="text-center">
@@ -92,7 +109,9 @@ export default function CFOServices() {
                 <Building2 className="h-8 w-8 text-white" />
               </div>
               <h3 className="text-xl font-semibold mb-2">2. Credibility</h3>
-              <p className="text-gray-600">Build business credit and establish credibility markers</p>
+              <p className="text-gray-600">
+                Build business credit and establish credibility markers
+              </p>
             </div>
 
             <div className="text-center">
@@ -100,7 +119,9 @@ export default function CFOServices() {
                 <DollarSign className="h-8 w-8 text-white" />
               </div>
               <h3 className="text-xl font-semibold mb-2">3. Funding</h3>
-              <p className="text-gray-600">Secure business funding and investment opportunities</p>
+              <p className="text-gray-600">
+                Secure business funding and investment opportunities
+              </p>
             </div>
 
             <div className="text-center">
@@ -108,7 +129,9 @@ export default function CFOServices() {
                 <TrendingUp className="h-8 w-8 text-white" />
               </div>
               <h3 className="text-xl font-semibold mb-2">4. Scale</h3>
-              <p className="text-gray-600">Ongoing CFO services and growth optimization</p>
+              <p className="text-gray-600">
+                Ongoing CFO services and growth optimization
+              </p>
             </div>
           </div>
         </div>
@@ -118,8 +141,12 @@ export default function CFOServices() {
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold mb-4">Business Funding & Structure Packages</h2>
-            <p className="text-xl text-gray-600">Professional business setup and funding solutions</p>
+            <h2 className="text-3xl lg:text-4xl font-bold mb-4">
+              Business Funding & Structure Packages
+            </h2>
+            <p className="text-xl text-gray-600">
+              Professional business setup and funding solutions
+            </p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
@@ -127,9 +154,13 @@ export default function CFOServices() {
             <Card className="shadow-lg hover:shadow-xl transition-shadow">
               <CardHeader className="text-center pb-6">
                 <Building2 className="h-12 w-12 text-brand-blue mx-auto mb-4" />
-                <CardTitle className="text-2xl mb-2">BUSINESS STARTER</CardTitle>
+                <CardTitle className="text-2xl mb-2">
+                  BUSINESS STARTER
+                </CardTitle>
                 <div className="text-4xl font-bold text-brand-blue">$499</div>
-                <CardDescription className="text-lg">Essential business foundation setup</CardDescription>
+                <CardDescription className="text-lg">
+                  Essential business foundation setup
+                </CardDescription>
               </CardHeader>
               <CardContent>
                 <ul className="space-y-3 mb-6">
@@ -142,8 +173,8 @@ export default function CFOServices() {
                     EIN + professional business email
                   </li>
                   <li className="flex items-center">
-                    <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
-                    1 business tradeline setup
+                    <CheckCircle className="h-5 w-5 text-green-500 mr-3" />1
+                    business tradeline setup
                   </li>
                   <li className="flex items-center">
                     <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
@@ -158,7 +189,10 @@ export default function CFOServices() {
                     Basic compliance setup
                   </li>
                 </ul>
-                <Button className="w-full bg-gradient-to-r from-brand-blue-light to-brand-blue-dark" asChild>
+                <Button
+                  className="w-full bg-gradient-to-r from-brand-blue-light to-brand-blue-dark"
+                  asChild
+                >
                   <a href="/checkout?service=business-starter">
                     Start My Business
                     <ArrowRight className="ml-2 h-4 w-4" />
@@ -174,18 +208,22 @@ export default function CFOServices() {
               </div>
               <CardHeader className="text-center pb-6 pt-8">
                 <Star className="h-12 w-12 text-orange-500 mx-auto mb-4" />
-                <CardTitle className="text-2xl mb-2">CREDIBILITY BOOSTER</CardTitle>
+                <CardTitle className="text-2xl mb-2">
+                  CREDIBILITY BOOSTER
+                </CardTitle>
                 <div className="space-y-2">
                   <div className="text-3xl font-bold text-orange-600">$997</div>
                   <div className="text-lg text-gray-600">or $300/mo x4</div>
                 </div>
-                <CardDescription className="text-lg">Enhanced business credibility package</CardDescription>
+                <CardDescription className="text-lg">
+                  Enhanced business credibility package
+                </CardDescription>
               </CardHeader>
               <CardContent>
                 <ul className="space-y-3 mb-6">
                   <li className="flex items-center">
-                    <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
-                    2 business tradelines
+                    <CheckCircle className="h-5 w-5 text-green-500 mr-3" />2
+                    business tradelines
                   </li>
                   <li className="flex items-center">
                     <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
@@ -212,7 +250,10 @@ export default function CFOServices() {
                     Business plan framework
                   </li>
                 </ul>
-                <Button className="w-full bg-orange-600 hover:bg-orange-700" asChild>
+                <Button
+                  className="w-full bg-orange-600 hover:bg-orange-700"
+                  asChild
+                >
                   <a href="/checkout?service=credibility-booster">
                     Boost My Credibility
                     <ArrowRight className="ml-2 h-4 w-4" />
@@ -222,24 +263,44 @@ export default function CFOServices() {
             </Card>
 
             {/* Investor Ready */}
-            <Card className="relative border-2 border-gold shadow-lg" style={{borderColor: '#FFD700'}}>
+            <Card
+              className="relative border-2 border-gold shadow-lg"
+              style={{ borderColor: "#FFD700" }}
+            >
               <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                <Badge className="text-black" style={{backgroundColor: '#FFD700'}}>INVESTOR READY</Badge>
+                <Badge
+                  className="text-black"
+                  style={{ backgroundColor: "#FFD700" }}
+                >
+                  INVESTOR READY
+                </Badge>
               </div>
               <CardHeader className="text-center pb-6 pt-8">
-                <Award className="h-12 w-12 mx-auto mb-4" style={{color: '#FFD700'}} />
-                <CardTitle className="text-2xl mb-2">INVESTOR READY PRO</CardTitle>
+                <Award
+                  className="h-12 w-12 mx-auto mb-4"
+                  style={{ color: "#FFD700" }}
+                />
+                <CardTitle className="text-2xl mb-2">
+                  INVESTOR READY PRO
+                </CardTitle>
                 <div className="space-y-2">
-                  <div className="text-3xl font-bold" style={{color: '#FFD700'}}>$1,497</div>
+                  <div
+                    className="text-3xl font-bold"
+                    style={{ color: "#FFD700" }}
+                  >
+                    $1,497
+                  </div>
                   <div className="text-lg text-gray-600">or $399/mo x4</div>
                 </div>
-                <CardDescription className="text-lg">Complete investor-ready business package</CardDescription>
+                <CardDescription className="text-lg">
+                  Complete investor-ready business package
+                </CardDescription>
               </CardHeader>
               <CardContent>
                 <ul className="space-y-3 mb-6">
                   <li className="flex items-center">
-                    <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
-                    3 primary business accounts
+                    <CheckCircle className="h-5 w-5 text-green-500 mr-3" />3
+                    primary business accounts
                   </li>
                   <li className="flex items-center">
                     <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
@@ -266,7 +327,11 @@ export default function CFOServices() {
                     Due diligence preparation
                   </li>
                 </ul>
-                <Button className="w-full text-black hover:opacity-90" style={{backgroundColor: '#FFD700'}} asChild>
+                <Button
+                  className="w-full text-black hover:opacity-90"
+                  style={{ backgroundColor: "#FFD700" }}
+                  asChild
+                >
                   <a href="/checkout?service=investor-ready">
                     Get Investor Ready
                     <ArrowRight className="ml-2 h-4 w-4" />
@@ -279,29 +344,37 @@ export default function CFOServices() {
           {/* Complete Business Solution */}
           <Card className="relative border-2 border-purple-600 shadow-xl">
             <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-              <Badge className="bg-purple-600 text-white">COMPLETE SOLUTION</Badge>
+              <Badge className="bg-purple-600 text-white">
+                COMPLETE SOLUTION
+              </Badge>
             </div>
             <CardHeader className="text-center pb-6 pt-8">
               <Briefcase className="h-12 w-12 text-purple-600 mx-auto mb-4" />
-              <CardTitle className="text-3xl mb-2">COMPLETE BUSINESS CFO PACKAGE</CardTitle>
+              <CardTitle className="text-3xl mb-2">
+                COMPLETE BUSINESS CFO PACKAGE
+              </CardTitle>
               <div className="space-y-2">
                 <div className="text-4xl font-bold text-purple-600">$4,997</div>
                 <div className="text-lg text-gray-600">or $1,249/mo x4</div>
               </div>
-              <CardDescription className="text-xl">Full-service business setup + ongoing CFO services</CardDescription>
+              <CardDescription className="text-xl">
+                Full-service business setup + ongoing CFO services
+              </CardDescription>
             </CardHeader>
             <CardContent>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                 <div>
-                  <h4 className="font-semibold mb-3 text-brand-blue">Business Setup Includes:</h4>
+                  <h4 className="font-semibold mb-3 text-brand-blue">
+                    Business Setup Includes:
+                  </h4>
                   <ul className="space-y-2 text-sm">
                     <li className="flex items-center">
                       <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
                       Complete business formation and registration
                     </li>
                     <li className="flex items-center">
-                      <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                      5 premium business tradelines
+                      <CheckCircle className="h-4 w-4 text-green-500 mr-2" />5
+                      premium business tradelines
                     </li>
                     <li className="flex items-center">
                       <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
@@ -318,7 +391,9 @@ export default function CFOServices() {
                   </ul>
                 </div>
                 <div>
-                  <h4 className="font-semibold mb-3 text-brand-blue">Ongoing CFO Services:</h4>
+                  <h4 className="font-semibold mb-3 text-brand-blue">
+                    Ongoing CFO Services:
+                  </h4>
                   <ul className="space-y-2 text-sm">
                     <li className="flex items-center">
                       <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
@@ -345,10 +420,14 @@ export default function CFOServices() {
               </div>
               <div className="bg-purple-50 p-4 rounded-lg mb-6">
                 <p className="text-center font-medium text-purple-700">
-                  🎯 Guarantee: $100K+ in funding opportunities or your money back
+                  🎯 Guarantee: $100K+ in funding opportunities or your money
+                  back
                 </p>
               </div>
-              <Button className="w-full bg-purple-600 hover:bg-purple-700 text-lg py-6" asChild>
+              <Button
+                className="w-full bg-purple-600 hover:bg-purple-700 text-lg py-6"
+                asChild
+              >
                 <a href="/checkout?service=complete-business">
                   Get Complete Business Solution
                   <ArrowRight className="ml-2 h-5 w-5" />
@@ -363,33 +442,49 @@ export default function CFOServices() {
       <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold mb-4">Comprehensive CFO Services</h2>
-            <p className="text-xl text-gray-600">Professional financial leadership for your business growth</p>
+            <h2 className="text-3xl lg:text-4xl font-bold mb-4">
+              Comprehensive CFO Services
+            </h2>
+            <p className="text-xl text-gray-600">
+              Professional financial leadership for your business growth
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="text-center">
               <BarChart3 className="h-12 w-12 text-brand-blue mx-auto mb-4" />
               <h3 className="text-lg font-semibold mb-2">Financial Planning</h3>
-              <p className="text-gray-600">Strategic budgeting and long-term financial planning</p>
+              <p className="text-gray-600">
+                Strategic budgeting and long-term financial planning
+              </p>
             </div>
 
             <div className="text-center">
               <Calculator className="h-12 w-12 text-brand-blue mx-auto mb-4" />
-              <h3 className="text-lg font-semibold mb-2">Cash Flow Management</h3>
-              <p className="text-gray-600">Optimize cash flow and working capital management</p>
+              <h3 className="text-lg font-semibold mb-2">
+                Cash Flow Management
+              </h3>
+              <p className="text-gray-600">
+                Optimize cash flow and working capital management
+              </p>
             </div>
 
             <div className="text-center">
               <FileText className="h-12 w-12 text-brand-blue mx-auto mb-4" />
-              <h3 className="text-lg font-semibold mb-2">Financial Reporting</h3>
-              <p className="text-gray-600">Monthly reports and key performance indicators</p>
+              <h3 className="text-lg font-semibold mb-2">
+                Financial Reporting
+              </h3>
+              <p className="text-gray-600">
+                Monthly reports and key performance indicators
+              </p>
             </div>
 
             <div className="text-center">
               <Target className="h-12 w-12 text-brand-blue mx-auto mb-4" />
               <h3 className="text-lg font-semibold mb-2">Strategic Advisory</h3>
-              <p className="text-gray-600">Expert guidance for business growth and decisions</p>
+              <p className="text-gray-600">
+                Expert guidance for business growth and decisions
+              </p>
             </div>
           </div>
         </div>
@@ -399,14 +494,20 @@ export default function CFOServices() {
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold mb-4">Funding Opportunities</h2>
-            <p className="text-xl text-gray-600">Access various funding levels based on your business readiness</p>
+            <h2 className="text-3xl lg:text-4xl font-bold mb-4">
+              Funding Opportunities
+            </h2>
+            <p className="text-xl text-gray-600">
+              Access various funding levels based on your business readiness
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <Card className="text-center p-8">
               <CardHeader>
-                <CardTitle className="text-2xl text-green-600">Starter Level</CardTitle>
+                <CardTitle className="text-2xl text-green-600">
+                  Starter Level
+                </CardTitle>
                 <CardDescription>$5K - $15K</CardDescription>
               </CardHeader>
               <CardContent>
@@ -421,7 +522,9 @@ export default function CFOServices() {
 
             <Card className="text-center p-8 border-2 border-brand-blue">
               <CardHeader>
-                <CardTitle className="text-2xl text-brand-blue">Growth Level</CardTitle>
+                <CardTitle className="text-2xl text-brand-blue">
+                  Growth Level
+                </CardTitle>
                 <CardDescription>$25K - $100K</CardDescription>
               </CardHeader>
               <CardContent>
@@ -436,7 +539,9 @@ export default function CFOServices() {
 
             <Card className="text-center p-8">
               <CardHeader>
-                <CardTitle className="text-2xl text-purple-600">Scale Level</CardTitle>
+                <CardTitle className="text-2xl text-purple-600">
+                  Scale Level
+                </CardTitle>
                 <CardDescription>$250K+</CardDescription>
               </CardHeader>
               <CardContent>
@@ -459,13 +564,21 @@ export default function CFOServices() {
             Ready to Build Your Business?
           </h2>
           <p className="text-xl mb-8 text-blue-100 max-w-2xl mx-auto">
-            Join hundreds of successful businesses we've helped secure funding and achieve growth
+            Join hundreds of successful businesses we've helped secure funding
+            and achieve growth
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-white text-brand-blue hover:bg-gray-100">
+            <Button
+              size="lg"
+              className="bg-white text-brand-blue hover:bg-gray-100"
+            >
               Start Your Business Journey
             </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-brand-blue">
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-white text-white hover:bg-white hover:text-brand-blue"
+            >
               Schedule Business Consultation
             </Button>
           </div>
