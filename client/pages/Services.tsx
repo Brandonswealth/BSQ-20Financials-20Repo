@@ -25,13 +25,13 @@ export default function Services() {
       <section className="bg-gradient-to-r from-brand-blue-light to-brand-blue-dark text-white py-20">
         <div className="container mx-auto px-4 text-center">
           <Badge className="bg-white/20 text-white border-white/30 mb-4">
-            🚨 Limited Time Deal
+            Limited Time Offer
           </Badge>
           <h1 className="text-4xl lg:text-5xl font-bold mb-6">
-            Service Menu - Personal vs. Business
+            Professional Financial Services
           </h1>
           <p className="text-xl mb-8 text-blue-100">
-            Basic Plan Only $297! Choose from Personal Credit or Business Funding packages below
+            Comprehensive credit repair and business financial solutions designed for your success
           </p>
         </div>
       </section>
