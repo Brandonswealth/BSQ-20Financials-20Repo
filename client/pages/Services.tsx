@@ -42,7 +42,7 @@ export default function Services() {
           <div className="text-center mb-16">
             <div className="flex items-center justify-center mb-4">
               <CreditCard className="h-8 w-8 text-brand-blue mr-3" />
-              <h2 className="text-3xl lg:text-4xl font-bold">💳 Personal Credit Services</h2>
+              <h2 className="text-3xl lg:text-4xl font-bold">Personal Credit Services</h2>
             </div>
             <p className="text-xl text-gray-600">Professional credit repair solutions tailored to your needs</p>
           </div>
@@ -54,7 +54,7 @@ export default function Services() {
                 <Badge className="bg-green-500 text-white">🚨 LIMITED TIME</Badge>
               </div>
               <CardHeader className="text-center pb-6 pt-8">
-                <CardTitle className="text-2xl mb-2">✅ BASIC PLAN</CardTitle>
+                <CardTitle className="text-2xl mb-2">BASIC PLAN</CardTitle>
                 <div className="space-y-2">
                   <div className="text-4xl font-bold text-green-600">$297</div>
                   <div className="text-lg text-gray-500 line-through">normally $450</div>
@@ -73,7 +73,7 @@ export default function Services() {
                   </li>
                   <li className="flex items-center">
                     <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
-                    ✔️ Access to Finovo client portal
+                    ✔️ Access to BlueSQ Financials client portal
                   </li>
                 </ul>
                 <Button className="w-full bg-green-600 hover:bg-green-700">
@@ -85,7 +85,7 @@ export default function Services() {
             {/* Essentials Plan */}
             <Card className="shadow-lg hover:shadow-xl transition-shadow">
               <CardHeader className="text-center pb-6">
-                <CardTitle className="text-2xl mb-2">✅ ESSENTIALS CREDIT PLAN</CardTitle>
+                <CardTitle className="text-2xl mb-2">ESSENTIALS CREDIT PLAN</CardTitle>
                 <div className="text-4xl font-bold text-brand-blue">$499</div>
                 <CardDescription className="text-lg">Comprehensive credit evaluation and strategy</CardDescription>
               </CardHeader>
@@ -116,7 +116,7 @@ export default function Services() {
                 <Badge className="bg-purple-500 text-white">⭐ PREMIUM</Badge>
               </div>
               <CardHeader className="text-center pb-6 pt-8">
-                <CardTitle className="text-2xl mb-2">✅ PREMIUM CREDIT SWEEP</CardTitle>
+                <CardTitle className="text-2xl mb-2">PREMIUM CREDIT SWEEP</CardTitle>
                 <div className="space-y-2">
                   <div className="text-3xl font-bold text-purple-600">$2,500</div>
                   <div className="text-lg text-gray-600">or $599/mo x5</div>
@@ -153,7 +153,7 @@ export default function Services() {
           <div className="text-center mb-16">
             <div className="flex items-center justify-center mb-4">
               <Building2 className="h-8 w-8 text-brand-blue mr-3" />
-              <h2 className="text-3xl lg:text-4xl font-bold">🏢 Business Funding & Structure Packages</h2>
+              <h2 className="text-3xl lg:text-4xl font-bold">Business Funding & Structure Packages</h2>
             </div>
             <p className="text-xl text-gray-600">Professional business setup and funding solutions</p>
           </div>
@@ -162,7 +162,7 @@ export default function Services() {
             {/* Business Starter */}
             <Card className="shadow-lg hover:shadow-xl transition-shadow">
               <CardHeader className="text-center pb-6">
-                <CardTitle className="text-2xl mb-2">✅ BUSINESS STARTER</CardTitle>
+                <CardTitle className="text-2xl mb-2">BUSINESS STARTER</CardTitle>
                 <div className="text-4xl font-bold text-brand-blue">$499</div>
                 <CardDescription className="text-lg">Essential business foundation setup</CardDescription>
               </CardHeader>
@@ -197,7 +197,7 @@ export default function Services() {
                 <Badge className="bg-orange-500 text-white">🚀 POPULAR</Badge>
               </div>
               <CardHeader className="text-center pb-6 pt-8">
-                <CardTitle className="text-2xl mb-2">✅ CREDIBILITY BOOSTER</CardTitle>
+                <CardTitle className="text-2xl mb-2">CREDIBILITY BOOSTER</CardTitle>
                 <div className="space-y-2">
                   <div className="text-3xl font-bold text-orange-600">$997</div>
                   <div className="text-lg text-gray-600">or $300/mo x4</div>
@@ -235,7 +235,7 @@ export default function Services() {
                 <Badge className="text-black" style={{backgroundColor: '#FFD700'}}>👑 INVESTOR READY</Badge>
               </div>
               <CardHeader className="text-center pb-6 pt-8">
-                <CardTitle className="text-2xl mb-2">✅ INVESTOR READY PRO</CardTitle>
+                <CardTitle className="text-2xl mb-2">INVESTOR READY PRO</CardTitle>
                 <div className="space-y-2">
                   <div className="text-3xl font-bold" style={{color: '#FFD700'}}>$1,497</div>
                   <div className="text-lg text-gray-600">or $399/mo x4</div>
