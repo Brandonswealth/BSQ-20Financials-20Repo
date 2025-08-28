@@ -12,6 +12,7 @@ import CreditRepair from "./pages/CreditRepair";
 import CFOServices from "./pages/CFOServices";
 import Services from "./pages/Services";
 import Checkout from "./pages/Checkout";
+import About from "./pages/About";
 
 const queryClient = new QueryClient();
 
@@ -27,6 +28,7 @@ const App = () => (
           <Route path="/cfo-services" element={<CFOServices />} />
           <Route path="/services" element={<Services />} />
           <Route path="/checkout" element={<Checkout />} />
+          <Route path="/about" element={<About />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
