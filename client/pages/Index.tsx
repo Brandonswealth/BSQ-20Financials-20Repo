@@ -44,9 +44,11 @@ export default function Index() {
                   <Phone className="mr-2 h-5 w-5" />
                   Free Consultation
                 </Button>
-                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-brand-blue">
-                  View Services
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-brand-blue" asChild>
+                  <a href="/services">
+                    View Services
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </a>
                 </Button>
               </div>
             </div>
