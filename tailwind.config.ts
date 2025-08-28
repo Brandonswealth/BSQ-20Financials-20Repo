@@ -27,6 +27,12 @@ export default {
           DEFAULT: "hsl(var(--secondary))",
           foreground: "hsl(var(--secondary-foreground))",
         },
+        brand: {
+          blue: "hsl(var(--brand-blue))",
+          "blue-light": "hsl(var(--brand-blue-light))",
+          "blue-dark": "hsl(var(--brand-blue-dark))",
+          gradient: "linear-gradient(135deg, hsl(var(--brand-blue-light)), hsl(var(--brand-blue-dark)))",
+        },
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
           foreground: "hsl(var(--destructive-foreground))",
