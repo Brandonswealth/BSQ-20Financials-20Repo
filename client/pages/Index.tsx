@@ -40,9 +40,11 @@ export default function Index() {
                 to help you achieve financial success and business growth.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="bg-white text-brand-blue hover:bg-gray-100">
-                  <Phone className="mr-2 h-5 w-5" />
-                  Free Consultation
+                <Button size="lg" className="bg-white text-brand-blue hover:bg-gray-100" asChild>
+                  <a href="https://calendly.com/brandonswealth/15min" target="_blank" rel="noopener noreferrer">
+                    <Phone className="mr-2 h-5 w-5" />
+                    Free Consultation
+                  </a>
                 </Button>
                 <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-brand-blue" asChild>
                   <a href="/services">
@@ -329,13 +331,15 @@ export default function Index() {
             Get your free consultation today.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-white text-brand-blue hover:bg-gray-100">
-              <Phone className="mr-2 h-5 w-5" />
-              Call (555) 123-4567
+            <Button size="lg" className="bg-white text-brand-blue hover:bg-gray-100" asChild>
+              <a href="tel:8883059390">
+                <Phone className="mr-2 h-5 w-5" />
+                Call 888-305-9390
+              </a>
             </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-brand-blue">
-              Schedule Free Consultation
-            </Button>
+            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-brand-blue" asChild>
+                  <a href="https://calendly.com/brandonswealth/15min" target="_blank" rel="noopener noreferrer">Schedule Free Consultation</a>
+                </Button>
           </div>
         </div>
       </section>

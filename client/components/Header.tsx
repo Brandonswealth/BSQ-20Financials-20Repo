@@ -13,7 +13,7 @@ export function Header() {
           <div className="flex items-center space-x-6">
             <div className="flex items-center space-x-2">
               <Phone size={14} />
-              <span>(555) 123-4567</span>
+              <span>888-305-9390</span>
             </div>
             <div className="flex items-center space-x-2">
               <Mail size={14} />
@@ -51,8 +51,8 @@ export function Header() {
             <a href="/cfo-services" className="text-gray-700 hover:text-brand-blue font-medium">CFO Services</a>
             <a href="/about" className="text-gray-700 hover:text-brand-blue font-medium">About</a>
             <a href="/contact" className="text-gray-700 hover:text-brand-blue font-medium">Contact</a>
-            <Button className="bg-gradient-to-r from-brand-blue-light to-brand-blue-dark hover:from-brand-blue-dark hover:to-brand-blue">
-              Book Consultation
+            <Button className="bg-gradient-to-r from-brand-blue-light to-brand-blue-dark hover:from-brand-blue-dark hover:to-brand-blue" asChild>
+              <a href="https://calendly.com/brandonswealth/15min" target="_blank" rel="noopener noreferrer">Book Consultation</a>
             </Button>
           </nav>
 
