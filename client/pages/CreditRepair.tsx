@@ -483,8 +483,7 @@ export default function CreditRepair() {
             </Button>
             <Button
               size="lg"
-              variant="outline"
-              className="border-white text-white hover:bg-white hover:text-brand-blue"
+              className="bg-white text-brand-blue hover:bg-gray-100"
               asChild
             >
               <a href="https://calendly.com/brandonswealth/15min" target="_blank" rel="noopener noreferrer">Schedule Free Consultation</a>

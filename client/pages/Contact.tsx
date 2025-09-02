@@ -131,7 +131,7 @@ export default function Contact() {
                     <CardDescription>We respond within 24 hours</CardDescription>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-lg font-bold text-brand-blue">info@bsqfinancials.com</p>
+                    <p className="text-lg font-bold text-brand-blue">support@bluesq.pro</p>
                   </CardContent>
                 </Card>
 

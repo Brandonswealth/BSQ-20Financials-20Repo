@@ -545,7 +545,7 @@ export default function Checkout() {
 
                       {formData.preferredPayment === "zelle" && (
                         <div className="space-y-3 border rounded-lg p-4">
-                          <p className="text-sm text-gray-700">Send Zelle payment to <span className="font-semibold">info@bsqfinancials.com</span>. Enter the name that will appear on your Zelle transfer.</p>
+                          <p className="text-sm text-gray-700">Send Zelle payment to <span className="font-semibold">support@bluesq.pro</span>. Enter the name that will appear on your Zelle transfer.</p>
                           <div>
                             <Label htmlFor="zelleName">Your Zelle Name *</Label>
                             <Input id="zelleName" onChange={(e)=>setFormData(prev=>({...prev, zelleName:e.target.value}))} required />

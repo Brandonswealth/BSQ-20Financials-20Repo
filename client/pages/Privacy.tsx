@@ -17,7 +17,7 @@ export default function Privacy() {
             <h2>Security</h2>
             <p>We use industry-standard safeguards to protect your information.</p>
             <h2>Your Choices</h2>
-            <p>You may request access, correction, or deletion of your information at any time by contacting info@bsqfinancials.com.</p>
+            <p>You may request access, correction, or deletion of your information at any time by contacting support@bluesq.pro.</p>
             <p>Effective date: {new Date().getFullYear()}.</p>
           </div>
         </div>
