@@ -337,9 +337,9 @@ export default function Index() {
                 Call 888-305-9390
               </a>
             </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-brand-blue" asChild>
-                  <a href="https://calendly.com/brandonswealth/15min" target="_blank" rel="noopener noreferrer">Schedule Free Consultation</a>
-                </Button>
+            <Button size="lg" className="bg-white text-brand-blue hover:bg-gray-100" asChild>
+              <a href="https://calendly.com/brandonswealth/15min" target="_blank" rel="noopener noreferrer">Schedule Free Consultation</a>
+            </Button>
           </div>
         </div>
       </section>
