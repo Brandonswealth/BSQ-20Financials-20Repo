@@ -7,28 +7,34 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="col-span-1 md:col-span-2">
-            <div className="flex items-center space-x-3 mb-4">
-              <div className="w-10 h-10 bg-gradient-to-br from-brand-blue-light to-brand-blue-dark rounded-lg flex items-center justify-center">
-                <img 
-                  src="https://cdn.builder.io/api/v1/image/assets%2F73cef5d45d4148daa57a98053c90e59f%2F718cf6f2748346789f47888f62be5a36?format=webp&width=800" 
-                  alt="BSQ Financials" 
-                  className="w-8 h-8 object-contain"
+            <a href="/" className="flex items-center space-x-3 mb-4">
+              <div className="w-10 h-10 rounded-lg flex items-center justify-center">
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets%2F73cef5d45d4148daa57a98053c90e59f%2Fe10a085771f24e478a2d38f0d8c608b0?format=webp&width=800"
+                  alt="BSQ Financials"
+                  className="w-10 h-10 object-contain"
                 />
               </div>
               <div>
                 <h3 className="text-xl font-bold">BSQ Financials</h3>
                 <p className="text-sm text-gray-400">Building Made Smart</p>
               </div>
-            </div>
+            </a>
             <p className="text-gray-300 mb-4 max-w-md">
               Your trusted partner for credit repair and comprehensive CFO services. 
               We help individuals and businesses achieve financial success through 
               expert guidance and personalized solutions.
             </p>
             <div className="flex space-x-4">
-              <Facebook className="w-5 h-5 text-gray-400 hover:text-brand-blue cursor-pointer" />
-              <Twitter className="w-5 h-5 text-gray-400 hover:text-brand-blue cursor-pointer" />
-              <Linkedin className="w-5 h-5 text-gray-400 hover:text-brand-blue cursor-pointer" />
+              <a href="https://www.facebook.com/people/BSQ-Financial-services/61579583324094/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                <Facebook className="w-5 h-5 text-gray-400 hover:text-brand-blue" />
+              </a>
+              <a href="https://x.com/BSQfinancials" target="_blank" rel="noopener noreferrer" aria-label="Twitter/X">
+                <Twitter className="w-5 h-5 text-gray-400 hover:text-brand-blue" />
+              </a>
+              <a href="https://www.linkedin.com/company/bsq-financials/about/?viewAsMember=true" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <Linkedin className="w-5 h-5 text-gray-400 hover:text-brand-blue" />
+              </a>
             </div>
           </div>
 

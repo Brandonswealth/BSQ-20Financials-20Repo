@@ -47,8 +47,9 @@ export default function CreditRepair() {
               <Button
                 size="lg"
                 className="bg-white text-brand-blue hover:bg-gray-100"
+                asChild
               >
-                Start Your Credit Journey
+                <a href="#credit-plans">Start Your Credit Journey</a>
               </Button>
             </div>
             <div className="relative">
@@ -132,7 +133,7 @@ export default function CreditRepair() {
       </section>
 
       {/* Credit Repair Plans */}
-      <section className="py-20 bg-gray-50">
+      <section id="credit-plans" className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold mb-4">

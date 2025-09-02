@@ -460,9 +460,9 @@ export default function Checkout() {
                             <SelectValue placeholder="Choose payment method" />
                           </SelectTrigger>
                           <SelectContent>
-                            <SelectItem value="card">Credit/Debit Card</SelectItem>
+                            <SelectItem value="card">Credit/Debit Card (Stripe)</SelectItem>
+                            <SelectItem value="cashapp">Cash App</SelectItem>
                             <SelectItem value="zelle">Zelle</SelectItem>
-                            <SelectItem value="cashapp">CashApp</SelectItem>
                             <SelectItem value="paypal">PayPal</SelectItem>
                             <SelectItem value="afterpay">Afterpay</SelectItem>
                             <SelectItem value="klarna">Klarna</SelectItem>
@@ -472,6 +472,7 @@ export default function Checkout() {
 
                       {formData.preferredPayment === "card" && (
                         <div className="space-y-4 border rounded-lg p-4">
+                          <div className="text-sm text-gray-600 -mt-1">Secure card entry powered by Stripe.</div>
                           <div>
                             <Label htmlFor="cardName">Cardholder Name *</Label>
                             <Input id="cardName" value={cardData.cardName} onChange={(e) => setCardData({ ...cardData, cardName: e.target.value })} required />
@@ -519,6 +520,52 @@ export default function Checkout() {
                               <Label htmlFor="country">Country *</Label>
                               <Input id="country" value={cardData.country} onChange={(e) => setCardData({ ...cardData, country: e.target.value })} required />
                             </div>
+                          </div>
+                        </div>
+                      )}
+
+                      {formData.preferredPayment === "cashapp" && (
+                        <div className="space-y-4 border rounded-lg p-4">
+                          <p className="text-sm text-gray-700">Send payment using Cash App. Enter your $Cashtag so we can match your payment.</p>
+                          <div>
+                            <Label htmlFor="cashTag">Your Cash App $Cashtag *</Label>
+                            <Input id="cashTag" placeholder="$username" onChange={(e)=>setFormData(prev=>({...prev, cashTag:e.target.value}))} required />
+                          </div>
+                          <div className="flex gap-3">
+                            <a href="https://cash.app/" target="_blank" rel="noopener noreferrer" className="w-full">
+                              <Button type="button" className="w-full bg-green-600 hover:bg-green-700">Open Cash App</Button>
+                            </a>
+                          </div>
+                          <p className="text-xs text-gray-600">After sending, click Complete Order to finish.</p>
+                        </div>
+                      )}
+
+                      {formData.preferredPayment === "zelle" && (
+                        <div className="space-y-3 border rounded-lg p-4">
+                          <p className="text-sm text-gray-700">Send Zelle payment to <span className="font-semibold">info@bsqfinancials.com</span>. Enter the name that will appear on your Zelle transfer.</p>
+                          <div>
+                            <Label htmlFor="zelleName">Your Zelle Name *</Label>
+                            <Input id="zelleName" onChange={(e)=>setFormData(prev=>({...prev, zelleName:e.target.value}))} required />
+                          </div>
+                          <p className="text-xs text-gray-600">After sending, click Complete Order to finish.</p>
+                        </div>
+                      )}
+
+                      {formData.preferredPayment === "paypal" && (
+                        <div className="space-y-3 border rounded-lg p-4">
+                          <p className="text-sm text-gray-700">Pay with PayPal. You’ll be redirected to PayPal to complete your payment.</p>
+                          <a href="https://www.paypal.com/" target="_blank" rel="noopener noreferrer" className="w-full">
+                            <Button type="button" className="w-full bg-blue-600 hover:bg-blue-700">Go to PayPal</Button>
+                          </a>
+                        </div>
+                      )}
+
+                      {(formData.preferredPayment === "afterpay" || formData.preferredPayment === "klarna") && (
+                        <div className="space-y-3 border rounded-lg p-4">
+                          <p className="text-sm text-gray-700">Split payments with {formData.preferredPayment === "afterpay" ? "Afterpay" : "Klarna"}. We’ll send a secure checkout link to your email after you place the order.</p>
+                          <div>
+                            <Label htmlFor="billingAddress">Billing Address *</Label>
+                            <Input id="billingAddress" onChange={(e)=>setFormData(prev=>({...prev, billingAddress:e.target.value}))} required />
                           </div>
                         </div>
                       )}

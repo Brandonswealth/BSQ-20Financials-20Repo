@@ -30,7 +30,7 @@ export function Header() {
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
-          <div className="flex items-center space-x-3">
+          <a href="/" className="flex items-center space-x-3 group">
             <div className="w-10 h-10 rounded-lg flex items-center justify-center">
               <img
                 src="https://cdn.builder.io/api/v1/image/assets%2F73cef5d45d4148daa57a98053c90e59f%2Fe10a085771f24e478a2d38f0d8c608b0?format=webp&width=800"
@@ -39,10 +39,10 @@ export function Header() {
               />
             </div>
             <div>
-              <h1 className="text-xl font-bold text-gray-900">BSQ Financials</h1>
+              <h1 className="text-xl font-bold text-gray-900 group-hover:text-brand-blue">BSQ Financials</h1>
               <p className="text-xs text-gray-600">Building Made Smart</p>
             </div>
-          </div>
+          </a>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
