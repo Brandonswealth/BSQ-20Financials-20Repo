@@ -99,6 +99,9 @@ export default function Checkout() {
     currentCreditScore: "",
     goals: "",
     preferredPayment: "",
+    cashTag: "",
+    zelleName: "",
+    billingAddress: "",
   });
 
   const [addons, setAddons] = useState<Record<string, boolean>>({});
@@ -672,7 +675,10 @@ export default function Checkout() {
                                 !cardData.state ||
                                 !cardData.postalCode ||
                                 !cardData.country
-                              ))
+                              )) ||
+                              (formData.preferredPayment === "cashapp" && !formData.cashTag) ||
+                              (formData.preferredPayment === "zelle" && !formData.zelleName) ||
+                              ((formData.preferredPayment === "afterpay" || formData.preferredPayment === "klarna") && !formData.billingAddress)
                             }
                           >
                             Complete Order
