@@ -726,18 +726,17 @@ export default function Checkout() {
                 <div className="mt-6 text-center">
                   <div className="mb-3 text-gray-700">We also offer move-in ready apartment placements — just ask!</div>
                   <div className="flex gap-3 justify-center">
-                    <Button variant="outline" asChild>
+                    <Button variant="outline" className="border-brand-blue text-brand-blue hover:bg-brand-blue hover:text-white" asChild>
                       <a href="/services">
                         <ArrowLeft className="mr-2 h-4 w-4" />
                         View Services
                       </a>
                     </Button>
-                    <Button asChild>
+                    <Button className="bg-gradient-to-r from-brand-blue-light to-brand-blue-dark" asChild>
                       <a
                         href="https://calendly.com/brandonswealth/15min"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="bg-gradient-to-r from-brand-blue-light to-brand-blue-dark"
                       >
                         Schedule Free Consultation
                       </a>
