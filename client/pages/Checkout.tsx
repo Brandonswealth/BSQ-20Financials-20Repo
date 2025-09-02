@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -32,6 +32,7 @@ import {
   Shield,
   ArrowLeft,
 } from "lucide-react";
+import { useSearchParams } from "react-router-dom";
 
 const services = {
   // Credit Repair Services
@@ -86,6 +87,7 @@ const services = {
 };
 
 export default function Checkout() {
+  const [searchParams] = useSearchParams();
   const [selectedService, setSelectedService] = useState("");
   const [paymentPlan, setPaymentPlan] = useState("full");
   const [formData, setFormData] = useState({
@@ -99,9 +101,50 @@ export default function Checkout() {
     preferredPayment: "",
   });
 
+  const [addons, setAddons] = useState<Record<string, boolean>>({});
+
+  const [cardData, setCardData] = useState({
+    cardName: "",
+    cardNumber: "",
+    expMonth: "",
+    expYear: "",
+    cvc: "",
+    address1: "",
+    address2: "",
+    city: "",
+    state: "",
+    postalCode: "",
+    country: "United States",
+  });
+
+  const [orderNumber, setOrderNumber] = useState<string | null>(null);
+
   const service = selectedService
     ? services[selectedService as keyof typeof services]
     : null;
+
+  // Preselect service from URL param
+  useEffect(() => {
+    const serviceParam = searchParams.get("service");
+    if (serviceParam && services[serviceParam as keyof typeof services]) {
+      setSelectedService(serviceParam);
+    }
+  }, [searchParams]);
+
+  const addOnsList: { key: string; name: string; price: number }[] = [
+    { key: "rush", name: "Rush Processing (48 hours)", price: 99 },
+    { key: "extended", name: "Extended Support (90 days)", price: 149 },
+    { key: "monitoring", name: "Credit Monitoring Setup", price: 49 },
+    { key: "identity", name: "Identity Theft Protection", price: 79 },
+  ];
+
+  const addOnsTotal = useMemo(
+    () =>
+      addOnsList
+        .filter((a) => addons[a.key])
+        .reduce((sum, a) => sum + a.price, 0),
+    [addons],
+  );
 
   const getPrice = () => {
     if (!service) return 0;
@@ -111,23 +154,58 @@ export default function Checkout() {
     return service.price;
   };
 
+  const getOrderTotal = () => {
+    if (!service) return addOnsTotal;
+    const base = paymentPlan === "monthly" && service.monthlyPrice ? service.monthlyPrice : service.price;
+    return base + addOnsTotal;
+  };
+
   const handleInputChange = (field: string, value: string) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would typically integrate with a payment processor
-    alert(
-      "Thank you! We'll contact you within 24 hours to process your order and send payment instructions.",
-    );
+
+    const gen = () =>
+      `BSQ-${Date.now().toString(36).toUpperCase()}-${Math
+        .floor(1000 + Math.random() * 9000)
+        .toString()}`;
+    setOrderNumber(gen());
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
     <div className="min-h-screen">
       <Header />
 
-      <section className="py-20">
+      {orderNumber ? (
+        <section className="py-20">
+          <div className="container mx-auto px-4">
+            <div className="max-w-2xl mx-auto">
+              <Card className="text-center p-10 border-2 border-green-500">
+                <CardHeader>
+                  <CardTitle className="text-3xl">Thank you for your order!</CardTitle>
+                  <CardDescription>Your order has been received and is being processed.</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="text-lg mb-6">Order Number: <span className="font-semibold">{orderNumber}</span></div>
+                  <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                    <Button asChild className="bg-gradient-to-r from-brand-blue-light to-brand-blue-dark">
+                      <a href="/services">View Services</a>
+                    </Button>
+                    <Button asChild variant="outline">
+                      <a href="https://calendly.com/brandonswealth/15min" target="_blank" rel="noopener noreferrer">Schedule Free Consultation</a>
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+              <div className="text-center mt-6 text-gray-700">We also offer move-in ready apartment placements — just ask!</div>
+            </div>
+          </div>
+        </section>
+      ) : (
+        <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             {/* Header */}
@@ -151,7 +229,10 @@ export default function Checkout() {
                   <CardContent>
                     <Select
                       value={selectedService}
-                      onValueChange={setSelectedService}
+                      onValueChange={(v) => {
+                        setSelectedService(v);
+                        setPaymentPlan("full");
+                      }}
                     >
                       <SelectTrigger>
                         <SelectValue placeholder="Choose a service package" />
@@ -219,10 +300,33 @@ export default function Checkout() {
                         </div>
                       </div>
                     )}
+
+                    {/* Add-ons */}
+                    <div className="mt-6">
+                      <Label className="text-base font-medium">Optional Add-ons</Label>
+                      <div className="mt-3 space-y-3">
+                        {addOnsList.map((a) => (
+                          <label key={a.key} className="flex items-center justify-between border rounded-md p-3 cursor-pointer">
+                            <div className="flex items-center">
+                              <input
+                                type="checkbox"
+                                className="mr-3 h-4 w-4"
+                                checked={Boolean(addons[a.key])}
+                                onChange={(e) =>
+                                  setAddons((prev) => ({ ...prev, [a.key]: e.target.checked }))
+                                }
+                              />
+                              <span>{a.name}</span>
+                            </div>
+                            <span className="font-medium">+${a.price}</span>
+                          </label>
+                        ))}
+                      </div>
+                    </div>
                   </CardContent>
                 </Card>
 
-                {/* Contact Form */}
+                {/* Contact + Payment Form */}
                 <Card>
                   <CardHeader>
                     <CardTitle className="flex items-center">
@@ -345,9 +449,7 @@ export default function Checkout() {
                       </div>
 
                       <div>
-                        <Label htmlFor="preferredPayment">
-                          Preferred Payment Method
-                        </Label>
+                        <Label htmlFor="preferredPayment">Payment Method</Label>
                         <Select
                           value={formData.preferredPayment}
                           onValueChange={(value) =>
@@ -358,20 +460,68 @@ export default function Checkout() {
                             <SelectValue placeholder="Choose payment method" />
                           </SelectTrigger>
                           <SelectContent>
+                            <SelectItem value="card">Credit/Debit Card</SelectItem>
                             <SelectItem value="zelle">Zelle</SelectItem>
-                            <SelectItem value="card">
-                              Credit/Debit Card
-                            </SelectItem>
                             <SelectItem value="cashapp">CashApp</SelectItem>
                             <SelectItem value="paypal">PayPal</SelectItem>
                             <SelectItem value="afterpay">Afterpay</SelectItem>
                             <SelectItem value="klarna">Klarna</SelectItem>
-                            <SelectItem value="custom">
-                              Custom Payment Plan
-                            </SelectItem>
                           </SelectContent>
                         </Select>
                       </div>
+
+                      {formData.preferredPayment === "card" && (
+                        <div className="space-y-4 border rounded-lg p-4">
+                          <div>
+                            <Label htmlFor="cardName">Cardholder Name *</Label>
+                            <Input id="cardName" value={cardData.cardName} onChange={(e) => setCardData({ ...cardData, cardName: e.target.value })} required />
+                          </div>
+                          <div>
+                            <Label htmlFor="cardNumber">Card Number *</Label>
+                            <Input id="cardNumber" inputMode="numeric" maxLength={19} placeholder="1234 5678 9012 3456" value={cardData.cardNumber} onChange={(e) => setCardData({ ...cardData, cardNumber: e.target.value.replace(/[^0-9\s]/g, "") })} required />
+                          </div>
+                          <div className="grid grid-cols-3 gap-4">
+                            <div>
+                              <Label htmlFor="expMonth">Exp. Month *</Label>
+                              <Input id="expMonth" placeholder="MM" value={cardData.expMonth} onChange={(e) => setCardData({ ...cardData, expMonth: e.target.value })} required />
+                            </div>
+                            <div>
+                              <Label htmlFor="expYear">Exp. Year *</Label>
+                              <Input id="expYear" placeholder="YYYY" value={cardData.expYear} onChange={(e) => setCardData({ ...cardData, expYear: e.target.value })} required />
+                            </div>
+                            <div>
+                              <Label htmlFor="cvc">CVC *</Label>
+                              <Input id="cvc" placeholder="CVC" value={cardData.cvc} onChange={(e) => setCardData({ ...cardData, cvc: e.target.value })} required />
+                            </div>
+                          </div>
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                              <Label htmlFor="address1">Billing Address *</Label>
+                              <Input id="address1" value={cardData.address1} onChange={(e) => setCardData({ ...cardData, address1: e.target.value })} required />
+                            </div>
+                            <div>
+                              <Label htmlFor="address2">Apt/Suite</Label>
+                              <Input id="address2" value={cardData.address2} onChange={(e) => setCardData({ ...cardData, address2: e.target.value })} />
+                            </div>
+                            <div>
+                              <Label htmlFor="city">City *</Label>
+                              <Input id="city" value={cardData.city} onChange={(e) => setCardData({ ...cardData, city: e.target.value })} required />
+                            </div>
+                            <div>
+                              <Label htmlFor="state">State/Province *</Label>
+                              <Input id="state" value={cardData.state} onChange={(e) => setCardData({ ...cardData, state: e.target.value })} required />
+                            </div>
+                            <div>
+                              <Label htmlFor="postalCode">Postal Code *</Label>
+                              <Input id="postalCode" value={cardData.postalCode} onChange={(e) => setCardData({ ...cardData, postalCode: e.target.value })} required />
+                            </div>
+                            <div>
+                              <Label htmlFor="country">Country *</Label>
+                              <Input id="country" value={cardData.country} onChange={(e) => setCardData({ ...cardData, country: e.target.value })} required />
+                            </div>
+                          </div>
+                        </div>
+                      )}
                     </form>
                   </CardContent>
                 </Card>
@@ -415,6 +565,22 @@ export default function Checkout() {
                           </div>
                         </div>
 
+                        {addOnsTotal > 0 && (
+                          <div className="text-sm text-gray-700">
+                            <div className="font-medium mb-1">Add-ons</div>
+                            <ul className="space-y-1">
+                              {addOnsList
+                                .filter((a) => addons[a.key])
+                                .map((a) => (
+                                  <li key={a.key} className="flex justify-between">
+                                    <span>{a.name}</span>
+                                    <span>+${a.price}</span>
+                                  </li>
+                                ))}
+                            </ul>
+                          </div>
+                        )}
+
                         {service.originalPrice && paymentPlan === "full" && (
                           <div className="text-sm text-green-600">
                             You save $
@@ -425,19 +591,15 @@ export default function Checkout() {
                           </div>
                         )}
 
-                        <div className="border-t pt-4">
+                        <div className="border-t pt-4 space-y-2">
                           <div className="flex justify-between items-center font-bold text-lg">
                             <span>Total:</span>
-                            <span>${getPrice().toLocaleString()}</span>
+                            <span>${getOrderTotal().toLocaleString()}</span>
                           </div>
                           {paymentPlan === "monthly" &&
                             service.monthlyPrice && (
                               <div className="text-sm text-gray-600 text-right">
-                                Total: ${service.price.toLocaleString()} over{" "}
-                                {Math.ceil(
-                                  service.price / service.monthlyPrice,
-                                )}{" "}
-                                months
+                                Base service total ${service.price.toLocaleString()} over {Math.ceil(service.price / service.monthlyPrice)} months. Add-ons billed upfront.
                               </div>
                             )}
                         </div>
@@ -451,7 +613,19 @@ export default function Checkout() {
                               !formData.firstName ||
                               !formData.lastName ||
                               !formData.email ||
-                              !formData.phone
+                              !formData.phone ||
+                              (formData.preferredPayment === "card" && (
+                                !cardData.cardName ||
+                                !cardData.cardNumber ||
+                                !cardData.expMonth ||
+                                !cardData.expYear ||
+                                !cardData.cvc ||
+                                !cardData.address1 ||
+                                !cardData.city ||
+                                !cardData.state ||
+                                !cardData.postalCode ||
+                                !cardData.country
+                              ))
                             }
                           >
                             Complete Order
@@ -478,14 +652,10 @@ export default function Checkout() {
                             </span>
                           </div>
                           <ul className="text-sm text-gray-600 space-y-1">
+                            <li>• You'll receive a confirmation email</li>
                             <li>• We'll contact you within 24 hours</li>
-                            <li>• Send secure payment instructions</li>
-                            <li>
-                              • Begin your service immediately after payment
-                            </li>
-                            <li>
-                              • Provide your dedicated client portal access
-                            </li>
+                            <li>• Begin your service immediately after payment</li>
+                            <li>• Provide your dedicated client portal access</li>
                           </ul>
                         </div>
                       </div>
@@ -501,18 +671,32 @@ export default function Checkout() {
                 </Card>
 
                 <div className="mt-6 text-center">
-                  <Button variant="outline" asChild>
-                    <a href="/services">
-                      <ArrowLeft className="mr-2 h-4 w-4" />
-                      Back to Services
-                    </a>
-                  </Button>
+                  <div className="mb-3 text-gray-700">We also offer move-in ready apartment placements — just ask!</div>
+                  <div className="flex gap-3 justify-center">
+                    <Button variant="outline" asChild>
+                      <a href="/services">
+                        <ArrowLeft className="mr-2 h-4 w-4" />
+                        View Services
+                      </a>
+                    </Button>
+                    <Button asChild>
+                      <a
+                        href="https://calendly.com/brandonswealth/15min"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="bg-gradient-to-r from-brand-blue-light to-brand-blue-dark"
+                      >
+                        Schedule Free Consultation
+                      </a>
+                    </Button>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </section>
+      )}
 
       <Footer />
     </div>
