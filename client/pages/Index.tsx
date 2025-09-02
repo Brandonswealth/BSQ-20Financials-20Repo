@@ -46,7 +46,7 @@ export default function Index() {
                     Free Consultation
                   </a>
                 </Button>
-                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-brand-blue" asChild>
+                <Button size="lg" className="bg-white text-brand-blue hover:bg-gray-100" asChild>
                   <a href="/services">
                     View Services
                     <ArrowRight className="ml-2 h-5 w-5" />
