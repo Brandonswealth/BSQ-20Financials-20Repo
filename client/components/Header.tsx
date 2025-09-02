@@ -39,20 +39,56 @@ export function Header() {
               />
             </div>
             <div>
-              <h1 className="text-xl font-bold text-gray-900 group-hover:text-brand-blue">BSQ Financials</h1>
+              <h1 className="text-xl font-bold text-gray-900 group-hover:text-brand-blue">
+                BSQ Financials
+              </h1>
               <p className="text-xs text-gray-600">Building Made Smart</p>
             </div>
           </a>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <a href="/" className="text-gray-700 hover:text-brand-blue font-medium">Home</a>
-            <a href="/credit-repair" className="text-gray-700 hover:text-brand-blue font-medium">Credit Repair</a>
-            <a href="/cfo-services" className="text-gray-700 hover:text-brand-blue font-medium">CFO Services</a>
-            <a href="/about" className="text-gray-700 hover:text-brand-blue font-medium">About</a>
-            <a href="/contact" className="text-gray-700 hover:text-brand-blue font-medium">Contact</a>
-            <Button className="bg-gradient-to-r from-brand-blue-light to-brand-blue-dark hover:from-brand-blue-dark hover:to-brand-blue" asChild>
-              <a href="https://calendly.com/brandonswealth/15min" target="_blank" rel="noopener noreferrer">Book Consultation</a>
+            <a
+              href="/"
+              className="text-gray-700 hover:text-brand-blue font-medium"
+            >
+              Home
+            </a>
+            <a
+              href="/credit-repair"
+              className="text-gray-700 hover:text-brand-blue font-medium"
+            >
+              Credit Repair
+            </a>
+            <a
+              href="/cfo-services"
+              className="text-gray-700 hover:text-brand-blue font-medium"
+            >
+              CFO Services
+            </a>
+            <a
+              href="/about"
+              className="text-gray-700 hover:text-brand-blue font-medium"
+            >
+              About
+            </a>
+            <a
+              href="/contact"
+              className="text-gray-700 hover:text-brand-blue font-medium"
+            >
+              Contact
+            </a>
+            <Button
+              className="bg-gradient-to-r from-brand-blue-light to-brand-blue-dark hover:from-brand-blue-dark hover:to-brand-blue"
+              asChild
+            >
+              <a
+                href="https://calendly.com/brandonswealth/15min"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Book Consultation
+              </a>
             </Button>
           </nav>
 
@@ -69,13 +105,47 @@ export function Header() {
         {isMenuOpen && (
           <div className="md:hidden py-4 border-t">
             <nav className="flex flex-col space-y-4">
-              <a href="/" className="text-gray-700 hover:text-brand-blue font-medium">Home</a>
-              <a href="/credit-repair" className="text-gray-700 hover:text-brand-blue font-medium">Credit Repair</a>
-              <a href="/cfo-services" className="text-gray-700 hover:text-brand-blue font-medium">CFO Services</a>
-              <a href="/about" className="text-gray-700 hover:text-brand-blue font-medium">About</a>
-              <a href="/contact" className="text-gray-700 hover:text-brand-blue font-medium">Contact</a>
-              <Button className="bg-gradient-to-r from-brand-blue-light to-brand-blue-dark hover:from-brand-blue-dark hover:to-brand-blue w-fit" asChild>
-                <a href="https://calendly.com/brandonswealth/15min" target="_blank" rel="noopener noreferrer">Book Consultation</a>
+              <a
+                href="/"
+                className="text-gray-700 hover:text-brand-blue font-medium"
+              >
+                Home
+              </a>
+              <a
+                href="/credit-repair"
+                className="text-gray-700 hover:text-brand-blue font-medium"
+              >
+                Credit Repair
+              </a>
+              <a
+                href="/cfo-services"
+                className="text-gray-700 hover:text-brand-blue font-medium"
+              >
+                CFO Services
+              </a>
+              <a
+                href="/about"
+                className="text-gray-700 hover:text-brand-blue font-medium"
+              >
+                About
+              </a>
+              <a
+                href="/contact"
+                className="text-gray-700 hover:text-brand-blue font-medium"
+              >
+                Contact
+              </a>
+              <Button
+                className="bg-gradient-to-r from-brand-blue-light to-brand-blue-dark hover:from-brand-blue-dark hover:to-brand-blue w-fit"
+                asChild
+              >
+                <a
+                  href="https://calendly.com/brandonswealth/15min"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Book Consultation
+                </a>
               </Button>
             </nav>
           </div>

@@ -275,7 +275,11 @@ export default function About() {
                     className="bg-white text-brand-blue hover:bg-gray-100"
                     asChild
                   >
-                    <a href="https://calendly.com/brandonswealth/15min" target="_blank" rel="noopener noreferrer">
+                    <a
+                      href="https://calendly.com/brandonswealth/15min"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <Phone className="mr-2 h-5 w-5" />
                       Schedule Free Consultation
                     </a>

@@ -21,18 +21,33 @@ export function Footer() {
               </div>
             </a>
             <p className="text-gray-300 mb-4 max-w-md">
-              Your trusted partner for credit repair and comprehensive CFO services. 
-              We help individuals and businesses achieve financial success through 
-              expert guidance and personalized solutions.
+              Your trusted partner for credit repair and comprehensive CFO
+              services. We help individuals and businesses achieve financial
+              success through expert guidance and personalized solutions.
             </p>
             <div className="flex space-x-4">
-              <a href="https://www.facebook.com/people/BSQ-Financial-services/61579583324094/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <a
+                href="https://www.facebook.com/people/BSQ-Financial-services/61579583324094/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+              >
                 <Facebook className="w-5 h-5 text-gray-400 hover:text-brand-blue" />
               </a>
-              <a href="https://x.com/BSQfinancials" target="_blank" rel="noopener noreferrer" aria-label="Twitter/X">
+              <a
+                href="https://x.com/BSQfinancials"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Twitter/X"
+              >
                 <Twitter className="w-5 h-5 text-gray-400 hover:text-brand-blue" />
               </a>
-              <a href="https://www.linkedin.com/company/bsq-financials/about/?viewAsMember=true" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <a
+                href="https://www.linkedin.com/company/bsq-financials/about/?viewAsMember=true"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+              >
                 <Linkedin className="w-5 h-5 text-gray-400 hover:text-brand-blue" />
               </a>
             </div>
@@ -42,11 +57,34 @@ export function Footer() {
           <div>
             <h4 className="text-lg font-semibold mb-4">Services</h4>
             <ul className="space-y-2 text-gray-300">
-              <li><a href="/credit-repair" className="hover:text-brand-blue">Credit Repair</a></li>
-              <li><a href="/cfo-services" className="hover:text-brand-blue">CFO Services</a></li>
-              <li><a href="/financial-planning" className="hover:text-brand-blue">Financial Planning</a></li>
-              <li><a href="/debt-consolidation" className="hover:text-brand-blue">Debt Consolidation</a></li>
-              <li><a href="/business-consulting" className="hover:text-brand-blue">Business Consulting</a></li>
+              <li>
+                <a href="/credit-repair" className="hover:text-brand-blue">
+                  Credit Repair
+                </a>
+              </li>
+              <li>
+                <a href="/cfo-services" className="hover:text-brand-blue">
+                  CFO Services
+                </a>
+              </li>
+              <li>
+                <a href="/financial-planning" className="hover:text-brand-blue">
+                  Financial Planning
+                </a>
+              </li>
+              <li>
+                <a href="/debt-consolidation" className="hover:text-brand-blue">
+                  Debt Consolidation
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/business-consulting"
+                  className="hover:text-brand-blue"
+                >
+                  Business Consulting
+                </a>
+              </li>
             </ul>
           </div>
 
@@ -64,7 +102,11 @@ export function Footer() {
               </div>
               <div className="flex items-start space-x-2">
                 <MapPin size={16} className="mt-1" />
-                <span>1050 E Flamingo Rd, S107<br />Las Vegas, Nevada 89119</span>
+                <span>
+                  1050 E Flamingo Rd, S107
+                  <br />
+                  Las Vegas, Nevada 89119
+                </span>
               </div>
             </div>
           </div>
@@ -75,9 +117,15 @@ export function Footer() {
             © 2024 BSQ Financials. All rights reserved.
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0 text-sm text-gray-400">
-            <a href="/privacy" className="hover:text-brand-blue">Privacy Policy</a>
-            <a href="/terms" className="hover:text-brand-blue">Terms of Service</a>
-            <a href="/disclaimer" className="hover:text-brand-blue">Disclaimer</a>
+            <a href="/privacy" className="hover:text-brand-blue">
+              Privacy Policy
+            </a>
+            <a href="/terms" className="hover:text-brand-blue">
+              Terms of Service
+            </a>
+            <a href="/disclaimer" className="hover:text-brand-blue">
+              Disclaimer
+            </a>
           </div>
         </div>
       </div>

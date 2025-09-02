@@ -486,7 +486,13 @@ export default function CreditRepair() {
               className="bg-white text-brand-blue hover:bg-gray-100"
               asChild
             >
-              <a href="https://calendly.com/brandonswealth/15min" target="_blank" rel="noopener noreferrer">Schedule Free Consultation</a>
+              <a
+                href="https://calendly.com/brandonswealth/15min"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Schedule Free Consultation
+              </a>
             </Button>
           </div>
         </div>

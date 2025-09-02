@@ -1,28 +1,34 @@
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { 
-  CreditCard, 
-  TrendingUp, 
-  Shield, 
-  Users, 
-  Star, 
-  CheckCircle, 
+import {
+  CreditCard,
+  TrendingUp,
+  Shield,
+  Users,
+  Star,
+  CheckCircle,
   Phone,
   ArrowRight,
   BarChart3,
   Calculator,
   FileText,
-  Target
+  Target,
 } from "lucide-react";
 
 export default function Index() {
   return (
     <div className="min-h-screen">
       <Header />
-      
+
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-brand-blue-light to-brand-blue-dark text-white py-20">
         <div className="container mx-auto px-4">
@@ -32,21 +38,34 @@ export default function Index() {
                 Trusted Financial Partners
               </Badge>
               <h1 className="text-4xl lg:text-6xl font-bold mb-6 leading-tight">
-                Repair Your Credit & 
+                Repair Your Credit &
                 <span className="block text-yellow-300">Build Your Future</span>
               </h1>
               <p className="text-xl mb-8 text-blue-100">
-                Professional credit repair services and comprehensive CFO solutions 
-                to help you achieve financial success and business growth.
+                Professional credit repair services and comprehensive CFO
+                solutions to help you achieve financial success and business
+                growth.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="bg-white text-brand-blue hover:bg-gray-100" asChild>
-                  <a href="https://calendly.com/brandonswealth/15min" target="_blank" rel="noopener noreferrer">
+                <Button
+                  size="lg"
+                  className="bg-white text-brand-blue hover:bg-gray-100"
+                  asChild
+                >
+                  <a
+                    href="https://calendly.com/brandonswealth/15min"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <Phone className="mr-2 h-5 w-5" />
                     Free Consultation
                   </a>
                 </Button>
-                <Button size="lg" className="bg-white text-brand-blue hover:bg-gray-100" asChild>
+                <Button
+                  size="lg"
+                  className="bg-white text-brand-blue hover:bg-gray-100"
+                  asChild
+                >
                   <a href="/services">
                     View Services
                     <ArrowRight className="ml-2 h-5 w-5" />
@@ -84,9 +103,12 @@ export default function Index() {
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold mb-4">Our Services</h2>
+            <h2 className="text-3xl lg:text-4xl font-bold mb-4">
+              Our Services
+            </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Comprehensive financial solutions tailored to your personal and business needs
+              Comprehensive financial solutions tailored to your personal and
+              business needs
             </p>
           </div>
 
@@ -97,9 +119,12 @@ export default function Index() {
                 <div className="w-16 h-16 bg-gradient-to-br from-brand-blue-light to-brand-blue-dark rounded-lg flex items-center justify-center mb-4">
                   <CreditCard className="h-8 w-8 text-white" />
                 </div>
-                <CardTitle className="text-2xl">Credit Repair Services</CardTitle>
+                <CardTitle className="text-2xl">
+                  Credit Repair Services
+                </CardTitle>
                 <CardDescription className="text-lg">
-                  Professional credit restoration to improve your financial standing
+                  Professional credit restoration to improve your financial
+                  standing
                 </CardDescription>
               </CardHeader>
               <CardContent>
@@ -171,7 +196,9 @@ export default function Index() {
                 <Calculator className="h-6 w-6 text-white" />
               </div>
               <CardTitle className="text-lg mb-2">Financial Planning</CardTitle>
-              <CardDescription>Comprehensive financial strategy development</CardDescription>
+              <CardDescription>
+                Comprehensive financial strategy development
+              </CardDescription>
             </Card>
 
             <Card className="text-center p-6 hover:shadow-lg transition-shadow">
@@ -179,23 +206,33 @@ export default function Index() {
                 <FileText className="h-6 w-6 text-white" />
               </div>
               <CardTitle className="text-lg mb-2">Debt Consolidation</CardTitle>
-              <CardDescription>Streamline your debts into manageable payments</CardDescription>
+              <CardDescription>
+                Streamline your debts into manageable payments
+              </CardDescription>
             </Card>
 
             <Card className="text-center p-6 hover:shadow-lg transition-shadow">
               <div className="w-12 h-12 bg-gradient-to-br from-brand-blue-light to-brand-blue-dark rounded-lg flex items-center justify-center mx-auto mb-4">
                 <Target className="h-6 w-6 text-white" />
               </div>
-              <CardTitle className="text-lg mb-2">Business Consulting</CardTitle>
-              <CardDescription>Expert guidance for business growth strategies</CardDescription>
+              <CardTitle className="text-lg mb-2">
+                Business Consulting
+              </CardTitle>
+              <CardDescription>
+                Expert guidance for business growth strategies
+              </CardDescription>
             </Card>
 
             <Card className="text-center p-6 hover:shadow-lg transition-shadow">
               <div className="w-12 h-12 bg-gradient-to-br from-brand-blue-light to-brand-blue-dark rounded-lg flex items-center justify-center mx-auto mb-4">
                 <TrendingUp className="h-6 w-6 text-white" />
               </div>
-              <CardTitle className="text-lg mb-2">Investment Advisory</CardTitle>
-              <CardDescription>Smart investment strategies for wealth building</CardDescription>
+              <CardTitle className="text-lg mb-2">
+                Investment Advisory
+              </CardTitle>
+              <CardDescription>
+                Smart investment strategies for wealth building
+              </CardDescription>
             </Card>
           </div>
         </div>
@@ -205,9 +242,12 @@ export default function Index() {
       <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold mb-4">Why Choose BSQ Financials?</h2>
+            <h2 className="text-3xl lg:text-4xl font-bold mb-4">
+              Why Choose BSQ Financials?
+            </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              We combine expertise, technology, and personalized service to deliver exceptional results
+              We combine expertise, technology, and personalized service to
+              deliver exceptional results
             </p>
           </div>
 
@@ -216,9 +256,12 @@ export default function Index() {
               <div className="w-20 h-20 bg-gradient-to-br from-brand-blue-light to-brand-blue-dark rounded-full flex items-center justify-center mx-auto mb-6">
                 <Shield className="h-10 w-10 text-white" />
               </div>
-              <h3 className="text-xl font-semibold mb-4">Proven Track Record</h3>
+              <h3 className="text-xl font-semibold mb-4">
+                Proven Track Record
+              </h3>
               <p className="text-gray-600">
-                Over 95% success rate in credit improvement with thousands of satisfied clients
+                Over 95% success rate in credit improvement with thousands of
+                satisfied clients
               </p>
             </div>
 
@@ -228,7 +271,8 @@ export default function Index() {
               </div>
               <h3 className="text-xl font-semibold mb-4">Expert Team</h3>
               <p className="text-gray-600">
-                Certified financial professionals with decades of combined experience
+                Certified financial professionals with decades of combined
+                experience
               </p>
             </div>
 
@@ -236,9 +280,12 @@ export default function Index() {
               <div className="w-20 h-20 bg-gradient-to-br from-brand-blue-light to-brand-blue-dark rounded-full flex items-center justify-center mx-auto mb-6">
                 <Star className="h-10 w-10 text-white" />
               </div>
-              <h3 className="text-xl font-semibold mb-4">Personalized Service</h3>
+              <h3 className="text-xl font-semibold mb-4">
+                Personalized Service
+              </h3>
               <p className="text-gray-600">
-                Tailored solutions designed specifically for your unique financial situation
+                Tailored solutions designed specifically for your unique
+                financial situation
               </p>
             </div>
           </div>
@@ -249,8 +296,12 @@ export default function Index() {
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold mb-4">What Our Clients Say</h2>
-            <p className="text-xl text-gray-600">Success stories from real people we've helped</p>
+            <h2 className="text-3xl lg:text-4xl font-bold mb-4">
+              What Our Clients Say
+            </h2>
+            <p className="text-xl text-gray-600">
+              Success stories from real people we've helped
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -258,18 +309,24 @@ export default function Index() {
               <CardContent className="pt-6">
                 <div className="flex mb-4">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
+                    <Star
+                      key={i}
+                      className="h-5 w-5 text-yellow-400 fill-current"
+                    />
                   ))}
                 </div>
                 <p className="text-gray-600 mb-4">
-                  "BSQ Financials helped me improve my credit score by 150 points in just 6 months. 
-                  Their team was professional and kept me informed throughout the entire process."
+                  "BSQ Financials helped me improve my credit score by 150
+                  points in just 6 months. Their team was professional and kept
+                  me informed throughout the entire process."
                 </p>
                 <div className="flex items-center">
                   <div className="w-10 h-10 bg-gray-300 rounded-full mr-3"></div>
                   <div>
                     <p className="font-semibold">Sarah Johnson</p>
-                    <p className="text-sm text-gray-500">Small Business Owner</p>
+                    <p className="text-sm text-gray-500">
+                      Small Business Owner
+                    </p>
                   </div>
                 </div>
               </CardContent>
@@ -279,18 +336,24 @@ export default function Index() {
               <CardContent className="pt-6">
                 <div className="flex mb-4">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
+                    <Star
+                      key={i}
+                      className="h-5 w-5 text-yellow-400 fill-current"
+                    />
                   ))}
                 </div>
                 <p className="text-gray-600 mb-4">
-                  "The CFO services transformed our business finances. We now have clear visibility 
-                  into our cash flow and strategic planning for growth."
+                  "The CFO services transformed our business finances. We now
+                  have clear visibility into our cash flow and strategic
+                  planning for growth."
                 </p>
                 <div className="flex items-center">
                   <div className="w-10 h-10 bg-gray-300 rounded-full mr-3"></div>
                   <div>
                     <p className="font-semibold">Michael Chen</p>
-                    <p className="text-sm text-gray-500">Tech Startup Founder</p>
+                    <p className="text-sm text-gray-500">
+                      Tech Startup Founder
+                    </p>
                   </div>
                 </div>
               </CardContent>
@@ -300,18 +363,23 @@ export default function Index() {
               <CardContent className="pt-6">
                 <div className="flex mb-4">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
+                    <Star
+                      key={i}
+                      className="h-5 w-5 text-yellow-400 fill-current"
+                    />
                   ))}
                 </div>
                 <p className="text-gray-600 mb-4">
-                  "Professional, reliable, and results-driven. BSQ Financials exceeded our 
-                  expectations in every way. Highly recommended!"
+                  "Professional, reliable, and results-driven. BSQ Financials
+                  exceeded our expectations in every way. Highly recommended!"
                 </p>
                 <div className="flex items-center">
                   <div className="w-10 h-10 bg-gray-300 rounded-full mr-3"></div>
                   <div>
                     <p className="font-semibold">Emily Rodriguez</p>
-                    <p className="text-sm text-gray-500">Real Estate Investor</p>
+                    <p className="text-sm text-gray-500">
+                      Real Estate Investor
+                    </p>
                   </div>
                 </div>
               </CardContent>
@@ -327,18 +395,32 @@ export default function Index() {
             Ready to Transform Your Financial Future?
           </h2>
           <p className="text-xl mb-8 text-blue-100 max-w-2xl mx-auto">
-            Take the first step towards better credit and financial success. 
-            Get your free consultation today.
+            Take the first step towards better credit and financial success. Get
+            your free consultation today.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-white text-brand-blue hover:bg-gray-100" asChild>
+            <Button
+              size="lg"
+              className="bg-white text-brand-blue hover:bg-gray-100"
+              asChild
+            >
               <a href="tel:8883059390">
                 <Phone className="mr-2 h-5 w-5" />
                 Call 888-305-9390
               </a>
             </Button>
-            <Button size="lg" className="bg-white text-brand-blue hover:bg-gray-100" asChild>
-              <a href="https://calendly.com/brandonswealth/15min" target="_blank" rel="noopener noreferrer">Schedule Free Consultation</a>
+            <Button
+              size="lg"
+              className="bg-white text-brand-blue hover:bg-gray-100"
+              asChild
+            >
+              <a
+                href="https://calendly.com/brandonswealth/15min"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Schedule Free Consultation
+              </a>
             </Button>
           </div>
         </div>
