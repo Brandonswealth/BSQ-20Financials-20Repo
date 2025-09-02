@@ -197,7 +197,7 @@ export default function Checkout() {
                     <Button asChild className="bg-gradient-to-r from-brand-blue-light to-brand-blue-dark">
                       <a href="/services">View Services</a>
                     </Button>
-                    <Button asChild variant="outline">
+                    <Button asChild variant="outline" className="border-brand-blue text-brand-blue hover:bg-brand-blue hover:text-white">
                       <a href="https://calendly.com/brandonswealth/15min" target="_blank" rel="noopener noreferrer">Schedule Free Consultation</a>
                     </Button>
                   </div>
