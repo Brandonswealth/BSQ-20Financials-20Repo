@@ -321,7 +321,7 @@ export default function Index() {
                   me informed throughout the entire process."
                 </p>
                 <div className="flex items-center">
-                  <img src="https://images.pexels.com/photos/33736988/pexels-photo-33736988.jpeg" alt="Client portrait" className="w-10 h-10 rounded-full object-cover mr-3" />
+                  <img src="https://images.pexels.com/photos/33728824/pexels-photo-33728824.jpeg" alt="Client portrait" className="w-10 h-10 rounded-full object-cover mr-3" />
                   <div>
                     <p className="font-semibold">Sarah Johnson</p>
                     <p className="text-sm text-gray-500">
