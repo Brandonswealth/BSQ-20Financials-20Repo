@@ -761,10 +761,10 @@ export default function Checkout() {
                             {/* STRIPE: Elements wrapper only needed if paying by card */}
                             {formData.preferredPayment === "card" ? (
                               <Elements stripe={stripePromise}>
-                                <PayButton />
+                                <StripePayButton />
                               </Elements>
                             ) : (
-                              <PayButton />
+                              <GeneralPayButton />
                             )}
 
                             <div className="text-center">
