@@ -23,7 +23,10 @@
   "dependencies": {
     "@stripe/react-stripe-js": "^4.0.0",
     "@stripe/stripe-js": "^7.9.0",
+<<<<<<< HEAD
     "axios": "^1.11.0",
+=======
+>>>>>>> 3794d0bb22d183043e63dfda557cf2e33e2bb8a4
     "dotenv": "^17.2.1",
     "express": "^5.1.0",
     "pg": "^8.16.3",
