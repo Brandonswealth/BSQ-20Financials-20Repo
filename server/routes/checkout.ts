@@ -2,11 +2,22 @@ import { z } from "zod";
 import type { Request, Response } from "express";
 import { sendEmail } from "../email";
 
-const LineItemSchema = z.object({ key: z.string(), name: z.string(), price: z.number() });
+const LineItemSchema = z.object({
+  key: z.string(),
+  name: z.string(),
+  price: z.number(),
+});
 
 const CheckoutPayloadSchema = z.object({
   orderNumber: z.string(),
-  service: z.object({ key: z.string(), name: z.string(), category: z.string(), price: z.number(), monthlyPrice: z.number().optional(), originalPrice: z.number().optional() }),
+  service: z.object({
+    key: z.string(),
+    name: z.string(),
+    category: z.string(),
+    price: z.number(),
+    monthlyPrice: z.number().optional(),
+    originalPrice: z.number().optional(),
+  }),
   paymentPlan: z.enum(["full", "monthly"]).optional().default("full"),
   addOns: z.array(LineItemSchema).optional().default([]),
   total: z.number(),
@@ -25,27 +36,47 @@ const CheckoutPayloadSchema = z.object({
 export async function handleCheckoutConfirm(req: Request, res: Response) {
   const parse = CheckoutPayloadSchema.safeParse(req.body);
   if (!parse.success) {
-    return res.status(400).json({ error: "Invalid payload", details: parse.error.flatten() });
+    return res
+      .status(400)
+      .json({ error: "Invalid payload", details: parse.error.flatten() });
   }
   const data = parse.data;
 
   // Build email contents
-  const customerName = `${data.customer.firstName} ${data.customer.lastName}`.trim();
+  const customerName =
+    `${data.customer.firstName} ${data.customer.lastName}`.trim();
   const supportEmail = process.env.MAIL_SUPPORT || "support@bluesq.pro";
   const now = new Date();
-  const orderDate = now.toLocaleString("en-US", { year: "numeric", month: "short", day: "2-digit", hour: "2-digit", minute: "2-digit" });
+  const orderDate = now.toLocaleString("en-US", {
+    year: "numeric",
+    month: "short",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+  });
   const currency = (v: number) => `$${v.toLocaleString()}`;
-  const basePrice = data.paymentPlan === "monthly" && data.service.monthlyPrice ? data.service.monthlyPrice : data.service.price;
-  const baseLabel = data.paymentPlan === "monthly" && data.service.monthlyPrice ? `${currency(data.service.monthlyPrice)} / mo` : currency(data.service.price);
+  const basePrice =
+    data.paymentPlan === "monthly" && data.service.monthlyPrice
+      ? data.service.monthlyPrice
+      : data.service.price;
+  const baseLabel =
+    data.paymentPlan === "monthly" && data.service.monthlyPrice
+      ? `${currency(data.service.monthlyPrice)} / mo`
+      : currency(data.service.price);
 
   const subject = `🎉 BSQ Financials — Order Confirmed: ${data.orderNumber}`;
 
   const addOnsRows = (data.addOns || [])
-    .map((a) => `<tr><td style="padding:8px 0;color:#555">${a.name}</td><td style="padding:8px 0;text-align:right;color:#111">${currency(a.price)}</td></tr>`)
+    .map(
+      (a) =>
+        `<tr><td style="padding:8px 0;color:#555">${a.name}</td><td style="padding:8px 0;text-align:right;color:#111">${currency(a.price)}</td></tr>`,
+    )
     .join("");
 
-  const logoUrl = "https://cdn.builder.io/api/v1/image/assets%2F73cef5d45d4148daa57a98053c90e59f%2Fe10a085771f24e478a2d38f0d8c608b0?format=webp&width=256";
-  const ctaBtn = (href: string, label: string, bg = "#1e3a8a") => `<a href="${href}" style="display:inline-block;background:${bg};color:#fff;text-decoration:none;padding:12px 18px;border-radius:8px;font-weight:600">${label}</a>`;
+  const logoUrl =
+    "https://cdn.builder.io/api/v1/image/assets%2F73cef5d45d4148daa57a98053c90e59f%2Fe10a085771f24e478a2d38f0d8c608b0?format=webp&width=256";
+  const ctaBtn = (href: string, label: string, bg = "#1e3a8a") =>
+    `<a href="${href}" style="display:inline-block;background:${bg};color:#fff;text-decoration:none;padding:12px 18px;border-radius:8px;font-weight:600">${label}</a>`;
 
   const html = `
   <div style="font-family:Arial,Helvetica,sans-serif;line-height:1.6;color:#0f172a;background:#f8fafc;padding:24px">
@@ -103,7 +134,9 @@ export async function handleCheckoutConfirm(req: Request, res: Response) {
     `Plan: ${data.paymentPlan === "monthly" ? "Monthly" : "Pay in Full"}`,
     `Payment Method: ${data.customer.preferredPayment || "—"}`,
     `Service: ${data.service.name} (${data.service.category}) — ${baseLabel}`,
-    ...(data.addOns || []).map((a) => `Add-on: ${a.name} — ${currency(a.price)}`),
+    ...(data.addOns || []).map(
+      (a) => `Add-on: ${a.name} — ${currency(a.price)}`,
+    ),
     `Total: ${currency(data.total)}`,
     `Customer: ${customerName} | ${data.customer.email} | ${data.customer.phone}`,
     `Action required: Complete intake form: https://pci.jotform.com/form/252128027758056`,
