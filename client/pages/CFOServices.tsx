@@ -54,8 +54,9 @@ export default function CFOServices() {
               <Button
                 size="lg"
                 className="bg-white text-brand-blue hover:bg-gray-100"
+                asChild
               >
-                Start Building Your Business
+                <a href="#packages">Start Building Your Business</a>
               </Button>
             </div>
             <div className="relative">
@@ -138,7 +139,7 @@ export default function CFOServices() {
       </section>
 
       {/* Business Funding Plans */}
-      <section className="py-20 bg-gray-50">
+      <section id="packages" className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold mb-4">
@@ -571,8 +572,9 @@ export default function CFOServices() {
             <Button
               size="lg"
               className="bg-white text-brand-blue hover:bg-gray-100"
+              asChild
             >
-              Start Your Business Journey
+              <a href="#packages">Start Your Business Journey</a>
             </Button>
             <Button
               size="lg"
