@@ -348,7 +348,7 @@ export default function Index() {
                   planning for growth."
                 </p>
                 <div className="flex items-center">
-                  <img src="https://images.pexels.com/photos/33728824/pexels-photo-33728824.jpeg" alt="Client portrait" className="w-10 h-10 rounded-full object-cover mr-3" />
+                  <img src="https://images.pexels.com/photos/17311570/pexels-photo-17311570.jpeg" alt="Client portrait" className="w-10 h-10 rounded-full object-cover mr-3" />
                   <div>
                     <p className="font-semibold">Michael Chen</p>
                     <p className="text-sm text-gray-500">
