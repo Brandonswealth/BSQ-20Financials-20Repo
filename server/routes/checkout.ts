@@ -60,6 +60,8 @@ export async function handleCheckoutConfirm(req: Request, res: Response) {
         <div style="background:#f1f5f9;border:1px solid #e2e8f0;border-radius:8px;padding:12px 14px;margin:12px 0">
           <div style="display:flex;justify-content:space-between;color:#334155"><span><strong>Order #</strong></span><span>${data.orderNumber}</span></div>
           <div style="display:flex;justify-content:space-between;color:#334155"><span><strong>Date</strong></span><span>${orderDate}</span></div>
+          <div style="display:flex;justify-content:space-between;color:#334155"><span><strong>Plan</strong></span><span>${data.paymentPlan === "monthly" ? "Monthly" : "Pay in Full"}</span></div>
+          <div style="display:flex;justify-content:space-between;color:#334155"><span><strong>Payment Method</strong></span><span>${data.customer.preferredPayment || "—"}</span></div>
         </div>
 
         <h3 style="margin:16px 0 8px;color:#0f172a;font-size:18px">Receipt</h3>
@@ -78,6 +80,11 @@ export async function handleCheckoutConfirm(req: Request, res: Response) {
         <h3 style="margin:18px 0 8px;color:#0f172a;font-size:18px">Customer</h3>
         <p style="margin:0 0 16px;color:#334155">${customerName}<br/>${data.customer.email} · ${data.customer.phone}${data.customer.businessName ? `<br/>${data.customer.businessName}` : ""}</p>
 
+        <div style="background:#fff7ed;border:1px solid #fed7aa;border-radius:8px;padding:12px 14px;margin:12px 0">
+          <p style="margin:0 0 8px;color:#9a3412"><strong>Action required:</strong> please complete this short form so we can process your order before an agent reaches out.</p>
+          ${ctaBtn("https://pci.jotform.com/form/252128027758056", "Complete Secure Intake Form", "#c2410c")}
+        </div>
+
         <div style="margin:18px 0;display:flex;gap:12px;flex-wrap:wrap">
           ${ctaBtn("https://calendly.com/brandonswealth/15min", "Schedule Free Consultation", "#0369a1")}
           ${ctaBtn("https://www.bsqfinancials.pro/services", "Explore More Services")}
@@ -93,10 +100,13 @@ export async function handleCheckoutConfirm(req: Request, res: Response) {
     `Thank you, ${customerName}! Your order is confirmed.`,
     `Order #: ${data.orderNumber}`,
     `Date: ${orderDate}`,
+    `Plan: ${data.paymentPlan === "monthly" ? "Monthly" : "Pay in Full"}`,
+    `Payment Method: ${data.customer.preferredPayment || "—"}`,
     `Service: ${data.service.name} (${data.service.category}) — ${baseLabel}`,
     ...(data.addOns || []).map((a) => `Add-on: ${a.name} — ${currency(a.price)}`),
     `Total: ${currency(data.total)}`,
     `Customer: ${customerName} | ${data.customer.email} | ${data.customer.phone}`,
+    `Action required: Complete intake form: https://pci.jotform.com/form/252128027758056`,
     `Next: We’ll contact you within 24 hours. Schedule: https://calendly.com/brandonswealth/15min`,
     `Support: ${supportEmail}`,
     `— BSQ Financials`,
