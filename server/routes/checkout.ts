@@ -162,5 +162,11 @@ export async function handleCheckoutConfirm(req: Request, res: Response) {
     console.error("[checkout] email error:", err?.message || err);
   }
 
+  try {
+    await insertOrder(data.orderNumber, data, emailed);
+  } catch (err: any) {
+    console.error("[checkout] db insert error:", err?.message || err);
+  }
+
   return res.json({ ok: true, emailed });
 }
