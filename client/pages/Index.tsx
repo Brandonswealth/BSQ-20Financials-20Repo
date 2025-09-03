@@ -146,7 +146,10 @@ export default function Index() {
                     Credit education and financial guidance
                   </li>
                 </ul>
-                <Button className="w-full bg-gradient-to-r from-brand-blue-light to-brand-blue-dark" asChild>
+                <Button
+                  className="w-full bg-gradient-to-r from-brand-blue-light to-brand-blue-dark"
+                  asChild
+                >
                   <a href="/credit-repair">Start Credit Repair</a>
                 </Button>
               </CardContent>
@@ -182,7 +185,10 @@ export default function Index() {
                     Strategic business advisory
                   </li>
                 </ul>
-                <Button className="w-full bg-gradient-to-r from-brand-blue-light to-brand-blue-dark" asChild>
+                <Button
+                  className="w-full bg-gradient-to-r from-brand-blue-light to-brand-blue-dark"
+                  asChild
+                >
                   <a href="/cfo-services">Explore CFO Services</a>
                 </Button>
               </CardContent>
@@ -195,7 +201,11 @@ export default function Index() {
               <div className="w-12 h-12 bg-gradient-to-br from-brand-blue-light to-brand-blue-dark rounded-lg flex items-center justify-center mx-auto mb-4">
                 <Calculator className="h-6 w-6 text-white" />
               </div>
-              <CardTitle className="text-lg mb-2"><a href="/financial-planning" className="hover:text-brand-blue">Financial Planning</a></CardTitle>
+              <CardTitle className="text-lg mb-2">
+                <a href="/financial-planning" className="hover:text-brand-blue">
+                  Financial Planning
+                </a>
+              </CardTitle>
               <CardDescription>
                 Comprehensive financial strategy development
               </CardDescription>
@@ -205,7 +215,11 @@ export default function Index() {
               <div className="w-12 h-12 bg-gradient-to-br from-brand-blue-light to-brand-blue-dark rounded-lg flex items-center justify-center mx-auto mb-4">
                 <FileText className="h-6 w-6 text-white" />
               </div>
-              <CardTitle className="text-lg mb-2"><a href="/debt-consolidation" className="hover:text-brand-blue">Debt Consolidation</a></CardTitle>
+              <CardTitle className="text-lg mb-2">
+                <a href="/debt-consolidation" className="hover:text-brand-blue">
+                  Debt Consolidation
+                </a>
+              </CardTitle>
               <CardDescription>
                 Streamline your debts into manageable payments
               </CardDescription>
@@ -216,7 +230,12 @@ export default function Index() {
                 <Target className="h-6 w-6 text-white" />
               </div>
               <CardTitle className="text-lg mb-2">
-                <a href="/business-consulting" className="hover:text-brand-blue">Business Consulting</a>
+                <a
+                  href="/business-consulting"
+                  className="hover:text-brand-blue"
+                >
+                  Business Consulting
+                </a>
               </CardTitle>
               <CardDescription>
                 Expert guidance for business growth strategies
@@ -321,7 +340,11 @@ export default function Index() {
                   me informed throughout the entire process."
                 </p>
                 <div className="flex items-center">
-                  <img src="https://images.pexels.com/photos/33728824/pexels-photo-33728824.jpeg" alt="Client portrait" className="w-10 h-10 rounded-full object-cover mr-3" />
+                  <img
+                    src="https://images.pexels.com/photos/33728824/pexels-photo-33728824.jpeg"
+                    alt="Client portrait"
+                    className="w-10 h-10 rounded-full object-cover mr-3"
+                  />
                   <div>
                     <p className="font-semibold">Sarah Johnson</p>
                     <p className="text-sm text-gray-500">
@@ -348,7 +371,11 @@ export default function Index() {
                   planning for growth."
                 </p>
                 <div className="flex items-center">
-                  <img src="https://images.pexels.com/photos/17311570/pexels-photo-17311570.jpeg" alt="Client portrait" className="w-10 h-10 rounded-full object-cover mr-3" />
+                  <img
+                    src="https://images.pexels.com/photos/17311570/pexels-photo-17311570.jpeg"
+                    alt="Client portrait"
+                    className="w-10 h-10 rounded-full object-cover mr-3"
+                  />
                   <div>
                     <p className="font-semibold">Michael Chen</p>
                     <p className="text-sm text-gray-500">
@@ -374,7 +401,11 @@ export default function Index() {
                   exceeded our expectations in every way. Highly recommended!"
                 </p>
                 <div className="flex items-center">
-                  <img src="https://images.pexels.com/photos/33657183/pexels-photo-33657183.jpeg" alt="Client portrait" className="w-10 h-10 rounded-full object-cover mr-3" />
+                  <img
+                    src="https://images.pexels.com/photos/33657183/pexels-photo-33657183.jpeg"
+                    alt="Client portrait"
+                    className="w-10 h-10 rounded-full object-cover mr-3"
+                  />
                   <div>
                     <p className="font-semibold">Emily Rodriguez</p>
                     <p className="text-sm text-gray-500">
