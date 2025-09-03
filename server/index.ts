@@ -3,9 +3,14 @@ import express from "express";
 import cors from "cors";
 import { handleDemo } from "./routes/demo";
 import { handleCheckoutConfirm } from "./routes/checkout";
+import { initDB } from "./db";
+import { handleAdminListOrders } from "./routes/admin";
 
 export function createServer() {
   const app = express();
+
+  // Initialize database (no-op if DATABASE_URL not set)
+  initDB().catch((e) => console.error("[db] init error", e));
 
   // Middleware
   app.use(cors());
@@ -20,6 +25,9 @@ export function createServer() {
 
   app.get("/api/demo", handleDemo);
   app.post("/api/checkout/confirm", handleCheckoutConfirm);
+
+  // Admin
+  app.get("/api/admin/orders", handleAdminListOrders);
 
   return app;
 }
