@@ -253,7 +253,7 @@ export default function Checkout() {
         }
       } catch (err: any) {
         console.error(err);
-        alert(err?.message || "Something went wrong.");
+        alert("Something went wrong.");
       } finally {
         setIsPaying(false);
       }
