@@ -5,6 +5,7 @@ import { handleDemo } from "./routes/demo";
 import { handleCheckoutConfirm } from "./routes/checkout";
 import { initDB } from "./db";
 import { handleAdminListOrders } from "./routes/admin";
+import { handleCheckoutWithStripe } from "./routes/stripe";
 
 export function createServer() {
   const app = express();
@@ -24,6 +25,7 @@ export function createServer() {
   });
 
   app.get("/api/demo", handleDemo);
+  app.post("/api/checkout/stripe", handleCheckoutWithStripe);
   app.post("/api/checkout/confirm", handleCheckoutConfirm);
 
   // Admin

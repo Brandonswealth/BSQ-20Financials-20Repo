@@ -2,6 +2,8 @@ import { z } from "zod";
 import type { Request, Response } from "express";
 import { sendEmail } from "../email";
 import { insertOrder } from "../db";
+import axios from "axios";
+
 
 const LineItemSchema = z.object({
   key: z.string(),
@@ -43,6 +45,32 @@ export async function handleCheckoutConfirm(req: Request, res: Response) {
   }
   const data = parse.data;
 
+////////////////////////
+  const ZAPIER_HOOK = process.env.ZAPIER_HOOK;
+  try {
+    const response = await axios.post(ZAPIER_HOOK,
+      {
+        properties: {
+          email: data.customer.email,
+          firstname: data.customer.firstName,
+          lastname: data.customer.lastName,
+          phone: data.customer.phone,
+          company: data.customer.businessName,
+        },
+      },
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+
+    console.log("✅ Contact created:", response.data);
+  } catch (err: any) {
+    console.error("❌ HubSpot error:", err.response?.data || err.message);
+  }
+
+///////////////////////////////
   // Build email contents
   const customerName =
     `${data.customer.firstName} ${data.customer.lastName}`.trim();
