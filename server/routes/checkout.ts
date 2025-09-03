@@ -1,6 +1,7 @@
 import { z } from "zod";
 import type { Request, Response } from "express";
 import { sendEmail } from "../email";
+import { insertOrder } from "../db";
 
 const LineItemSchema = z.object({
   key: z.string(),
