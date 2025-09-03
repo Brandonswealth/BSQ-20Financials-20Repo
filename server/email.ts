@@ -1,5 +1,3 @@
-import type { RequestInit } from "node-fetch";
-
 export type SendEmailInput = {
   to: string | string[];
   subject: string;
@@ -22,7 +20,7 @@ export async function sendEmail(input: SendEmailInput): Promise<{ id?: string }>
     html: input.html,
     text: input.text,
     reply_to: input.replyTo || process.env.MAIL_REPLY_TO || "support@bluesq.pro",
-  };
+  } as any;
 
   const res = await fetch("https://api.resend.com/emails", {
     method: "POST",
