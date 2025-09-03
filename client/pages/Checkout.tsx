@@ -170,14 +170,61 @@ export default function Checkout() {
     setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     const gen = () =>
       `BSQ-${Date.now().toString(36).toUpperCase()}-${Math.floor(
         1000 + Math.random() * 9000,
       ).toString()}`;
-    setOrderNumber(gen());
+    const newOrder = gen();
+
+    try {
+      const addOns = addOnsList.filter((a) => addons[a.key]);
+      const payload = {
+        orderNumber: newOrder,
+        service: service
+          ? {
+              key: selectedService,
+              name: service.name,
+              category: service.category,
+              price: service.price,
+              monthlyPrice: service.monthlyPrice,
+              originalPrice: service.originalPrice,
+            }
+          : null,
+        paymentPlan,
+        addOns,
+        total: getOrderTotal(),
+        customer: {
+          firstName: formData.firstName,
+          lastName: formData.lastName,
+          email: formData.email,
+          phone: formData.phone,
+          businessName: formData.businessName || undefined,
+          currentCreditScore: formData.currentCreditScore || undefined,
+          goals: formData.goals || undefined,
+          preferredPayment: formData.preferredPayment || undefined,
+        },
+      };
+
+      if (!payload.service) throw new Error("Missing service selection");
+
+      const res = await fetch("/api/checkout/confirm", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      if (!res.ok) {
+        const msg = await res.text().catch(() => "");
+        console.error("Checkout confirm failed", msg);
+      }
+    } catch (err) {
+      console.error(err);
+    }
+
+    setOrderNumber(newOrder);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
