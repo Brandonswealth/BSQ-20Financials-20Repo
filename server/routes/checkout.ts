@@ -57,6 +57,7 @@ Service: ${data.service.name} (${data.service.category})
 Total: $${data.total}
 We’ll contact you within 24 hours. — BSQ Financials`;
 
+  let emailed = true;
   try {
     // Send to customer
     await sendEmail({ to: data.customer.email, subject, html, text });
@@ -68,8 +69,9 @@ We’ll contact you within 24 hours. — BSQ Financials`;
       text,
     });
   } catch (err: any) {
-    return res.status(502).json({ error: "Email send failed", message: err?.message || String(err) });
+    emailed = false;
+    console.error("[checkout] email error:", err?.message || err);
   }
 
-  return res.json({ ok: true });
+  return res.json({ ok: true, emailed });
 }
