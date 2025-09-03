@@ -19,6 +19,7 @@ import Disclaimer from "./pages/Disclaimer";
 import FinancialPlanning from "./pages/FinancialPlanning";
 import DebtConsolidation from "./pages/DebtConsolidation";
 import BusinessConsulting from "./pages/BusinessConsulting";
+import AdminOrders from "./pages/admin/Orders";
 
 const queryClient = new QueryClient();
 
