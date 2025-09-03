@@ -124,14 +124,13 @@ export default function Checkout() {
     setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
-  // STRIPE: a small inner component to access hooks
-  function PayButton() {
+  // STRIPE: Stripe-specific payment button (needs Elements context)
+  function StripePayButton() {
     const stripe = useStripe();
     const elements = useElements();
 
-    const handleSubmit = async () => {
+    const handleStripeSubmit = async () => {
       if (!service) return;
-      // Generate a friendly order number (kept in client + stored in Stripe metadata)
       const gen = () =>
         `BSQ-${Date.now().toString(36).toUpperCase()}-${Math.floor(
           1000 + Math.random() * 9000
@@ -140,7 +139,11 @@ export default function Checkout() {
       setIsPaying(true);
 
       try {
-        // Ask server to create a PaymentIntent (server re-computes totals from service key + addons)
+        if (!stripe || !elements) throw new Error("Stripe not ready");
+        const card = elements.getElement(CardElement);
+        if (!card) throw new Error("Card element not found");
+
+        // Create PaymentIntent on server
         const createRes = await fetch("/api/stripe/create-payment-intent", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -175,81 +178,68 @@ export default function Checkout() {
 
         const { clientSecret } = await createRes.json();
 
-        if (formData.preferredPayment === "card") {
-          if (!stripe || !elements) throw new Error("Stripe not ready");
-          const card = elements.getElement(CardElement);
-          if (!card) throw new Error("Card element not found");
-
-          const { error, paymentIntent } = await stripe.confirmCardPayment(
-            clientSecret,
-            {
-              payment_method: {
-                card,
-                billing_details: {
-                  name: `${formData.firstName} ${formData.lastName}`.trim(),
-                  email: formData.email,
-                  phone: formData.phone,
-                  address: {
-                    line1: formData.address1 || undefined,
-                    city: formData.city || undefined,
-                    state: formData.state || undefined,
-                    postal_code: formData.postalCode || undefined,
-                    country: formData.country || undefined,
-                  },
+        const { error, paymentIntent } = await stripe.confirmCardPayment(
+          clientSecret,
+          {
+            payment_method: {
+              card,
+              billing_details: {
+                name: `${formData.firstName} ${formData.lastName}`.trim(),
+                email: formData.email,
+                phone: formData.phone,
+                address: {
+                  line1: formData.address1 || undefined,
+                  city: formData.city || undefined,
+                  state: formData.state || undefined,
+                  postal_code: formData.postalCode || undefined,
+                  country: formData.country || undefined,
                 },
               },
-            }
-          );
-
-          if (error) {
-            // Surface any card errors to the user (you can style this nicer)
-            alert(error.message || "Payment failed");
-            setIsPaying(false);
-            return;
+            },
           }
+        );
 
-          if (paymentIntent?.status === "succeeded") {
-            // Optionally tell your backend the order is confirmed (you already had /api/checkout/confirm)
-            await fetch("/api/checkout/confirm", {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({
-                orderNumber: newOrder,
-                service: service
-                  ? {
-                    key: selectedService,
-                    name: service.name,
-                    category: service.category,
-                    price: service.price,
-                    monthlyPrice: service.monthlyPrice,
-                    originalPrice: service.originalPrice,
-                  }
-                  : null,
-                paymentPlan,
-                addOns: addOnsList.filter((a) => addons[a.key]),
-                total: getOrderTotal(),
-                customer: {
-                  firstName: formData.firstName,
-                  lastName: formData.lastName,
-                  email: formData.email,
-                  phone: formData.phone,
-                  businessName: formData.businessName || undefined,
-                  currentCreditScore: formData.currentCreditScore || undefined,
-                  goals: formData.goals || undefined,
-                  preferredPayment: formData.preferredPayment || undefined,
-                },
-              }),
-            }).catch(() => { });
-            setOrderNumber(newOrder);
-            window.scrollTo({ top: 0, behavior: "smooth" });
-          } else {
-            alert("Payment was not successful. Please try again.");
-          }
-        } else {
-          // For non-card flows you already support, just fall back to original behavior:
-          // (Zelle/CashApp/etc.) Here we just move to the success state with an order number.
+        if (error) {
+          alert(error.message || "Payment failed");
+          setIsPaying(false);
+          return;
+        }
+
+        if (paymentIntent?.status === "succeeded") {
+          await fetch("/api/checkout/confirm", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              orderNumber: newOrder,
+              service: service
+                ? {
+                  key: selectedService,
+                  name: service.name,
+                  category: service.category,
+                  price: service.price,
+                  monthlyPrice: service.monthlyPrice,
+                  originalPrice: service.originalPrice,
+                }
+                : null,
+              paymentPlan,
+              addOns: addOnsList.filter((a) => addons[a.key]),
+              total: getOrderTotal(),
+              customer: {
+                firstName: formData.firstName,
+                lastName: formData.lastName,
+                email: formData.email,
+                phone: formData.phone,
+                businessName: formData.businessName || undefined,
+                currentCreditScore: formData.currentCreditScore || undefined,
+                goals: formData.goals || undefined,
+                preferredPayment: formData.preferredPayment || undefined,
+              },
+            }),
+          }).catch(() => { });
           setOrderNumber(newOrder);
           window.scrollTo({ top: 0, behavior: "smooth" });
+        } else {
+          alert("Payment was not successful. Please try again.");
         }
       } catch (err: any) {
         console.error(err);
@@ -261,7 +251,7 @@ export default function Checkout() {
 
     return (
       <Button
-        onClick={handleSubmit}
+        onClick={handleStripeSubmit}
         className="w-full bg-gradient-to-r from-brand-blue-light to-brand-blue-dark text-lg py-6"
         disabled={
           isPaying ||
@@ -270,8 +260,81 @@ export default function Checkout() {
           !formData.lastName ||
           !formData.email ||
           !formData.phone ||
-          (formData.preferredPayment === "card" &&
-            (!formData.address1 || !formData.city || !formData.state || !formData.postalCode)) ||
+          !formData.address1 ||
+          !formData.city ||
+          !formData.state ||
+          !formData.postalCode
+        }
+      >
+        {isPaying ? "Processing..." : "Complete Order"}
+      </Button>
+    );
+  }
+
+  // General payment button (no Stripe context needed)
+  function GeneralPayButton() {
+    const handleGeneralSubmit = async () => {
+      if (!service) return;
+      const gen = () =>
+        `BSQ-${Date.now().toString(36).toUpperCase()}-${Math.floor(
+          1000 + Math.random() * 9000
+        ).toString()}`;
+      const newOrder = gen();
+      setIsPaying(true);
+
+      try {
+        await fetch("/api/checkout/confirm", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            orderNumber: newOrder,
+            service: service
+              ? {
+                key: selectedService,
+                name: service.name,
+                category: service.category,
+                price: service.price,
+                monthlyPrice: service.monthlyPrice,
+                originalPrice: service.originalPrice,
+              }
+              : null,
+            paymentPlan,
+            addOns: addOnsList.filter((a) => addons[a.key]),
+            total: getOrderTotal(),
+            customer: {
+              firstName: formData.firstName,
+              lastName: formData.lastName,
+              email: formData.email,
+              phone: formData.phone,
+              businessName: formData.businessName || undefined,
+              currentCreditScore: formData.currentCreditScore || undefined,
+              goals: formData.goals || undefined,
+              preferredPayment: formData.preferredPayment || undefined,
+            },
+          }),
+        });
+
+        setOrderNumber(newOrder);
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      } catch (err: any) {
+        console.error(err);
+        alert(err?.message || "Something went wrong.");
+      } finally {
+        setIsPaying(false);
+      }
+    };
+
+    return (
+      <Button
+        onClick={handleGeneralSubmit}
+        className="w-full bg-gradient-to-r from-brand-blue-light to-brand-blue-dark text-lg py-6"
+        disabled={
+          isPaying ||
+          !selectedService ||
+          !formData.firstName ||
+          !formData.lastName ||
+          !formData.email ||
+          !formData.phone ||
           (formData.preferredPayment === "cashapp" && !formData.cashTag) ||
           (formData.preferredPayment === "zelle" && !formData.zelleName) ||
           ((formData.preferredPayment === "afterpay" ||
