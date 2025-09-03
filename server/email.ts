@@ -9,10 +9,14 @@ export type SendEmailInput = {
 
 export async function sendEmail(input: SendEmailInput): Promise<{ id?: string }>{
   const apiKey = process.env.RESEND_API_KEY;
-  if (!apiKey) {
-    throw new Error("Missing RESEND_API_KEY environment variable");
-  }
   const from = input.from || process.env.MAIL_FROM || "support@bluesq.pro";
+
+  // Graceful no-op when API key is not configured (dev or staging)
+  if (!apiKey) {
+    console.warn("[email] RESEND_API_KEY not set — skipping email send");
+    return { id: "skipped" };
+  }
+
   const body = {
     from,
     to: Array.isArray(input.to) ? input.to : [input.to],
