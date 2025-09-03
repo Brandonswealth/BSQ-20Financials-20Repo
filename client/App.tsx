@@ -17,6 +17,9 @@ import Contact from "./pages/Contact";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
 import Disclaimer from "./pages/Disclaimer";
+import FinancialPlanning from "./pages/FinancialPlanning";
+import DebtConsolidation from "./pages/DebtConsolidation";
+import BusinessConsulting from "./pages/BusinessConsulting";
 
 const queryClient = new QueryClient();
 
@@ -37,6 +40,9 @@ const App = () => (
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="/disclaimer" element={<Disclaimer />} />
+          <Route path="/financial-planning" element={<FinancialPlanning />} />
+          <Route path="/debt-consolidation" element={<DebtConsolidation />} />
+          <Route path="/business-consulting" element={<BusinessConsulting />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
