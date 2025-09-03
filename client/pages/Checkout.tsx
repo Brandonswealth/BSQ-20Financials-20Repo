@@ -600,53 +600,55 @@ export default function Checkout() {
 
                         {/* STRIPE: Card Entry */}
                         {formData.preferredPayment === "card" && (
-                          <div className="space-y-4 border rounded-lg p-4">
-                            <div className="text-sm text-gray-600 -mt-1">Secure card entry powered by Stripe.</div>
+                          <Elements stripe={stripePromise}>
+                            <div className="space-y-4 border rounded-lg p-4">
+                              <div className="text-sm text-gray-600 -mt-1">Secure card entry powered by Stripe.</div>
 
-                            {/* Minimal billing address for AVS */}
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                              <div>
-                                <Label htmlFor="address1">Billing Address *</Label>
-                                <Input
-                                  id="address1"
-                                  value={formData.address1}
-                                  onChange={(e) => handleInputChange("address1", e.target.value)}
-                                  required
-                                />
+                              {/* Minimal billing address for AVS */}
+                              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                  <Label htmlFor="address1">Billing Address *</Label>
+                                  <Input
+                                    id="address1"
+                                    value={formData.address1}
+                                    onChange={(e) => handleInputChange("address1", e.target.value)}
+                                    required
+                                  />
+                                </div>
+                                <div>
+                                  <Label htmlFor="city">City *</Label>
+                                  <Input
+                                    id="city"
+                                    value={formData.city}
+                                    onChange={(e) => handleInputChange("city", e.target.value)}
+                                    required
+                                  />
+                                </div>
+                                <div>
+                                  <Label htmlFor="state">State/Province *</Label>
+                                  <Input
+                                    id="state"
+                                    value={formData.state}
+                                    onChange={(e) => handleInputChange("state", e.target.value)}
+                                    required
+                                  />
+                                </div>
+                                <div>
+                                  <Label htmlFor="postalCode">Postal Code *</Label>
+                                  <Input
+                                    id="postalCode"
+                                    value={formData.postalCode}
+                                    onChange={(e) => handleInputChange("postalCode", e.target.value)}
+                                    required
+                                  />
+                                </div>
                               </div>
-                              <div>
-                                <Label htmlFor="city">City *</Label>
-                                <Input
-                                  id="city"
-                                  value={formData.city}
-                                  onChange={(e) => handleInputChange("city", e.target.value)}
-                                  required
-                                />
-                              </div>
-                              <div>
-                                <Label htmlFor="state">State/Province *</Label>
-                                <Input
-                                  id="state"
-                                  value={formData.state}
-                                  onChange={(e) => handleInputChange("state", e.target.value)}
-                                  required
-                                />
-                              </div>
-                              <div>
-                                <Label htmlFor="postalCode">Postal Code *</Label>
-                                <Input
-                                  id="postalCode"
-                                  value={formData.postalCode}
-                                  onChange={(e) => handleInputChange("postalCode", e.target.value)}
-                                  required
-                                />
+
+                              <div className="border rounded-md p-3">
+                                <CardElement options={{ hidePostalCode: true }} />
                               </div>
                             </div>
-
-                            <div className="border rounded-md p-3">
-                              <CardElement options={{ hidePostalCode: true }} />
-                            </div>
-                          </div>
+                          </Elements>
                         )}
 
                         {/* Your other methods preserved */}
