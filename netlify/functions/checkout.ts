@@ -10,8 +10,10 @@ export const handler = async (event: HandlerEvent) => {
 
 	const body = parseJSONBody<CheckoutRequest>(event);
 	if (!body) return error(400, 'Invalid JSON body');
+  console.log(body);
+  return ;
 
-	await initDB();
-	return await handleCheckoutWithStripe(body);
+	/*await initDB();
+	return await handleCheckoutWithStripe(body);*/
 };
 

@@ -19,3 +19,5 @@ export async function bootstrap() {
 
 // Re-export your route/business logic so functions can import from here.
 export * from "./routes/demo";
+export * from "./routes/checkout";
+export * from "./routes/stripe";

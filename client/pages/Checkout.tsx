@@ -140,45 +140,45 @@ export default function Checkout() {
       setIsPaying(true);
 
       try {
-        // Ask server to create a PaymentIntent (server re-computes totals from service key + addons)
-        const createRes = await fetch("/.netlify/functions/checkout", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            orderNumber: newOrder,
-            selectedService,
-            paymentPlan,
-            addOns: addOnsList.filter((a) => addons[a.key]).map(a => a.key),
-            customer: {
-              firstName: formData.firstName,
-              lastName: formData.lastName,
-              email: formData.email,
-              phone: formData.phone,
-              businessName: formData.businessName || undefined,
-              currentCreditScore: formData.currentCreditScore || undefined,
-              goals: formData.goals || undefined,
-            },
-            billing: {
-              address1: formData.address1,
-              city: formData.city,
-              state: formData.state,
-              postalCode: formData.postalCode,
-              country: formData.country,
-            },
-          }),
-        });
-
-        if (!createRes.ok) {
-          const msg = await createRes.text().catch(() => "");
-          throw new Error(`Failed to create PaymentIntent. ${msg}`);
-        }
-
-        const { clientSecret } = await createRes.json();
-
         if (formData.preferredPayment === "card") {
           if (!stripe || !elements) throw new Error("Stripe not ready");
           const card = elements.getElement(CardElement);
           if (!card) throw new Error("Card element not found");
+
+          // Ask server to create a PaymentIntent (server re-computes totals from service key + addons)
+          const createRes = await fetch("/.netlify/functions/checkout", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              orderNumber: newOrder,
+              selectedService,
+              paymentPlan,
+              addOns: addOnsList.filter((a) => addons[a.key]).map(a => a.key),
+              customer: {
+                firstName: formData.firstName,
+                lastName: formData.lastName,
+                email: formData.email,
+                phone: formData.phone,
+                businessName: formData.businessName || undefined,
+                currentCreditScore: formData.currentCreditScore || undefined,
+                goals: formData.goals || undefined,
+              },
+              billing: {
+                address1: formData.address1,
+                city: formData.city,
+                state: formData.state,
+                postalCode: formData.postalCode,
+                country: formData.country,
+              },
+            }),
+          });
+
+          if (!createRes.ok) {
+            const msg = await createRes.text().catch(() => "");
+            throw new Error(`Failed to create PaymentIntent. ${msg}`);
+          }
+
+          const { clientSecret } = await createRes.json();
 
           const { error, paymentIntent } = await stripe.confirmCardPayment(
             clientSecret,
@@ -208,7 +208,7 @@ export default function Checkout() {
             return;
           }
 
-          if (paymentIntent?.status === "succeeded") {
+          if (paymentIntent?.status === "succeeded" || formData.preferredPayment !== "card") {
             // Optionally tell your backend the order is confirmed (you already had /api/checkout/confirm)
             await fetch("/.netlify/functions/confirm", {
               method: "POST",
