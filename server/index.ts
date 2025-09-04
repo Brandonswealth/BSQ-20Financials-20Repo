@@ -1,7 +1,7 @@
 import "dotenv/config";
 import express from "express";
 import cors from "cors";
-import { handleDemo } from "./routes/demo";
+//import { handleDemo } from "./routes/demo";
 import { handleCheckoutConfirm } from "./routes/checkout";
 import { initDB } from "./db";
 import { handleAdminListOrders } from "./routes/admin";
@@ -24,7 +24,7 @@ export function createServer() {
     res.json({ message: ping });
   });
 
-  app.get("/api/demo", handleDemo);
+  //app.get("/api/demo", handleDemo);
   app.post("/api/checkout/stripe", handleCheckoutWithStripe);
   app.post("/api/checkout/confirm", handleCheckoutConfirm);
 
