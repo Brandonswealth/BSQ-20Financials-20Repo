@@ -1,5 +1,4 @@
 import serverless from "serverless-http";
-import express from "express";
 
 import { createServer } from "../../server";
 
