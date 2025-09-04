@@ -141,7 +141,7 @@ export default function Checkout() {
 
       try {
         // Ask server to create a PaymentIntent (server re-computes totals from service key + addons)
-        const createRes = await fetch("/api/checkout/stripe", {
+        const createRes = await fetch("/.netlify/functions/checkout", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
@@ -210,7 +210,7 @@ export default function Checkout() {
 
           if (paymentIntent?.status === "succeeded") {
             // Optionally tell your backend the order is confirmed (you already had /api/checkout/confirm)
-            await fetch("/api/checkout/confirm", {
+            await fetch("/.netlify/functions/confirm", {
               method: "POST",
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify({

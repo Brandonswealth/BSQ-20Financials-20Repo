@@ -1,3 +1,6 @@
+[dev]
+  targetPort = 8080
+
 [build]
   command = "npm run build"
   functions = "netlify/functions"
@@ -10,12 +13,22 @@
   node_bundler = "esbuild"
   
 [[redirects]]
-from = "/api/ping"
-to = "/.netlify/functions/ping"
-status = 200
+  from = "/api/ping"
+  to = "/.netlify/functions/ping"
+  status = 200
+
+[[redirects]]
+  from = "/api/demo"
+  to = "/.netlify/functions/demo"
+  status = 200
 
 
 [[redirects]]
-from = "/api/demo"
-to = "/.netlify/functions/demo"
-status = 200
+  from = "/api/checkout/stripe"
+  to = "/.netlify/functions/checkout-stripe"
+  status = 200
+
+ [[redirects]]
+   from = "/api/checkout/confirm"
+   to = "/.netlify/functions/checkout-stripe"
+   status = 200

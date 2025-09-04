@@ -1,12 +1,62 @@
 // server/stripe-routes.ts
-import type { Request, Response } from "express";
 import Stripe from "stripe";
+import { ok, error } from "../../netlify/functions/_utils/http.ts";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
   apiVersion: "2024-06-20",
 });
 
-const SERVICE_PRICES: Record<string, { price: number; monthlyPrice?: number; category: string; name: string }> = {
+// Allow addOns to be strings (keys) or objects (LineItem-like)
+type AddOnInput =
+  | string
+  | {
+  key: string;
+  name: string;
+  category: string;
+  price: number;
+  monthlyPrice?: number;
+  originalPrice?: number;
+  qty?: number;
+};
+
+export type StripeCheckoutRequest = {
+  orderNumber: string;
+  service?: {
+    key: string;
+    name: string;
+    category: string;
+    price: number;
+    monthlyPrice?: number;
+    originalPrice?: number;
+  };
+  paymentPlan: "full" | "monthly"; // default: "full"
+  selectedService?: string; // kept for backward compatibility
+  addOns?: AddOnInput[];
+  total?: number; // optional if you want server to compute
+  customer: {
+    firstName: string;
+    lastName: string;
+    email: string;
+    phone: string;
+    businessName?: string;
+    currentCreditScore?: string;
+    goals?: string;
+    preferredPayment?: string;
+  };
+  billing?: {
+    address1: string;
+    address2?: string;
+    city: string;
+    state: string;
+    postalCode: string;
+    country: string;
+  };
+};
+
+const SERVICE_PRICES: Record<
+  string,
+  { price: number; monthlyPrice?: number; category: string; name: string }
+> = {
   "basic-credit": { name: "Basic Credit Plan", price: 297, category: "Credit Repair" },
   "essentials-credit": { name: "Essentials Credit Plan", price: 499, category: "Credit Repair" },
   "premium-credit": { name: "Premium Credit Sweep", price: 2500, monthlyPrice: 599, category: "Credit Repair" },
@@ -24,60 +74,70 @@ const ADDONS: Record<string, { name: string; price: number }> = {
   identity: { name: "Identity Theft Protection", price: 79 },
 };
 
-export async function handleCheckoutWithStripe(req: Request, res: Response) {
-    try {
-      const {
+// Normalize add-ons to keys and filter to known ones
+function normalizeAddOnKeys(addOns: AddOnInput[] | undefined) {
+  const keys = (addOns ?? []).map((a) => (typeof a === "string" ? a : a.key)).filter(Boolean) as string[];
+  return keys.filter((k) => !!ADDONS[k]);
+}
+
+export async function handleCheckoutWithStripe(req: StripeCheckoutRequest) {
+  try {
+    const {
+      orderNumber,
+      selectedService,
+      service,
+      paymentPlan,
+      addOns,
+      customer,
+      // billing, // not used in PaymentIntent (no physical shipping); keep if you plan to store elsewhere
+    } = req;
+
+    // Accept either selectedService or service.key
+    const serviceKey = selectedService ?? service?.key;
+    if (!serviceKey) return error(400, "Missing service selection");
+
+    const svc = SERVICE_PRICES[serviceKey];
+    if (!svc) return error(400, "Invalid service");
+
+    // Normalize add-ons
+    const addOnKeys = normalizeAddOnKeys(addOns);
+    const addOnsTotal = addOnKeys.reduce((sum, k) => sum + ADDONS[k].price, 0);
+
+    // Pick base price by plan
+    const base = paymentPlan === "monthly" && svc.monthlyPrice ? svc.monthlyPrice : svc.price;
+    const computedTotal = base + addOnsTotal;
+
+    if (!(computedTotal > 0)) return error(400, "Invalid total");
+
+    const description =
+      `${svc.name}${addOnKeys.length ? ` + ${addOnKeys.length} add-on(s)` : ""}` +
+      (paymentPlan === "monthly" ? " (Monthly plan)" : "");
+
+    const metadataAddOns = addOnKeys.map((k) => ({ name: ADDONS[k].name, price: ADDONS[k].price }));
+
+    const paymentIntent = await stripe.paymentIntents.create({
+      amount: Math.round(computedTotal * 100), // cents
+      currency: "usd",
+      automatic_payment_methods: { enabled: true },
+      receipt_email: customer?.email,
+      description,
+      metadata: {
         orderNumber,
-        selectedService,
+        serviceKey: serviceKey,
+        serviceName: svc.name,
+        category: svc.category,
         paymentPlan,
-        addOns = [],
-        customer,
-        billing,
-      } = req.body as {
-        orderNumber: string;
-        selectedService: string;
-        paymentPlan: "full" | "monthly";
-        addOns: string[];
-        customer?: { firstName?: string; lastName?: string; email?: string; phone?: string; businessName?: string; currentCreditScore?: string; goals?: string; };
-        billing?: { address1?: string; city?: string; state?: string; postalCode?: string; country?: string; };
-      };
+        addOns: JSON.stringify(metadataAddOns),
+        customerName: `${customer?.firstName || ""} ${customer?.lastName || ""}`.trim(),
+        customerEmail: customer?.email || "",
+        customerPhone: customer?.phone || "",
+      },
+      // Do not include `shipping` if not needed
+    });
 
-      const svc = SERVICE_PRICES[selectedService];
-      if (!svc) return res.status(400).send("Invalid service");
-
-      const validAddOns = addOns.filter((k) => ADDONS[k]);
-      const addOnsTotal = validAddOns.reduce((sum, k) => sum + ADDONS[k].price, 0);
-      const base =
-        paymentPlan === "monthly" && svc.monthlyPrice ? svc.monthlyPrice : svc.price;
-      const total = base + addOnsTotal;
-
-      if (total <= 0) return res.status(400).send("Invalid total");
-
-      const description = `${svc.name}${validAddOns.length ? ` + ${validAddOns.length} add-on(s)` : ""}`;
-
-      const paymentIntent = await stripe.paymentIntents.create({
-        amount: Math.round(total * 100), // cents
-        currency: "usd",
-        automatic_payment_methods: { enabled: true },
-        receipt_email: customer?.email,
-        description,
-        metadata: {
-          orderNumber,
-          serviceKey: selectedService,
-          serviceName: svc.name,
-          category: svc.category,
-          paymentPlan,
-          addOns: JSON.stringify(validAddOns),
-          customerName: `${customer?.firstName || ""} ${customer?.lastName || ""}`.trim(),
-          customerEmail: customer?.email || "",
-          customerPhone: customer?.phone || "",
-        },
-        shipping: undefined, // not shipping physical goods
-      });
-
-      res.json({ clientSecret: paymentIntent.client_secret });
-    } catch (e: any) {
-      console.error(e);
-      res.status(500).send(e?.message || "Server error");
-    }
+    return ok({ clientSecret: paymentIntent.client_secret });
+  } catch (e: any) {
+    console.error(e);
+    return error(500, e?.message || "Server error");
+  }
 }
