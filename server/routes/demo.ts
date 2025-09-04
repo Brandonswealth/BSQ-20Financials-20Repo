@@ -1,4 +1,4 @@
-import { RequestHandler } from "express";
+/*import { RequestHandler } from "express";
 import { DemoResponse } from "@shared/api";
 
 export const handleDemo: RequestHandler = (req, res) => {
@@ -7,3 +7,7 @@ export const handleDemo: RequestHandler = (req, res) => {
   };
   res.status(200).json(response);
 };
+*/
+export async function demoLogic() {
+  return { message: 'demo ok', at: new Date().toISOString() };
+}
