@@ -208,49 +208,44 @@ export default function Checkout() {
             return;
           }
 
-          if (paymentIntent?.status === "succeeded" || formData.preferredPayment !== "card") {
-            // Optionally tell your backend the order is confirmed (you already had /api/checkout/confirm)
-            await fetch("/.netlify/functions/confirm", {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({
-                orderNumber: newOrder,
-                service: service
-                  ? {
-                      key: selectedService,
-                      name: service.name,
-                      category: service.category,
-                      price: service.price,
-                      monthlyPrice: service.monthlyPrice,
-                      originalPrice: service.originalPrice,
-                    }
-                  : null,
-                paymentPlan,
-                addOns: addOnsList.filter((a) => addons[a.key]),
-                total: getOrderTotal(),
-                customer: {
-                  firstName: formData.firstName,
-                  lastName: formData.lastName,
-                  email: formData.email,
-                  phone: formData.phone,
-                  businessName: formData.businessName || undefined,
-                  currentCreditScore: formData.currentCreditScore || undefined,
-                  goals: formData.goals || undefined,
-                  preferredPayment: formData.preferredPayment || undefined,
-                },
-              }),
-            }).catch(() => {});
-            setOrderNumber(newOrder);
-            window.scrollTo({ top: 0, behavior: "smooth" });
-          } else {
+          if (paymentIntent?.status !== "succeeded" ) {
             alert("Payment was not successful. Please try again.");
           }
-        } else {
-          // For non-card flows you already support, just fall back to original behavior:
-          // (Zelle/CashApp/etc.) Here we just move to the success state with an order number.
-          setOrderNumber(newOrder);
-          window.scrollTo({ top: 0, behavior: "smooth" });
         }
+
+        await fetch("/.netlify/functions/confirm", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            orderNumber: newOrder,
+            service: service
+              ? {
+                key: selectedService,
+                name: service.name,
+                category: service.category,
+                price: service.price,
+                monthlyPrice: service.monthlyPrice,
+                originalPrice: service.originalPrice,
+              }
+              : null,
+            paymentPlan,
+            addOns: addOnsList.filter((a) => addons[a.key]),
+            total: getOrderTotal(),
+            customer: {
+              firstName: formData.firstName,
+              lastName: formData.lastName,
+              email: formData.email,
+              phone: formData.phone,
+              businessName: formData.businessName || undefined,
+              currentCreditScore: formData.currentCreditScore || undefined,
+              goals: formData.goals || undefined,
+              preferredPayment: formData.preferredPayment || undefined,
+            },
+          }),
+        }).catch(() => {});
+        setOrderNumber(newOrder);
+        window.scrollTo({ top: 0, behavior: "smooth" });
+
       } catch (err: any) {
         console.error(err);
         alert("Something went wrong.");
