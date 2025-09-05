@@ -23,7 +23,8 @@ export async function sendEmail(input: SendEmailInput): Promise<{ id?: string }>
     subject: input.subject,
     html: input.html,
     text: input.text,
-    reply_to: input.replyTo || process.env.MAIL_REPLY_TO || "support@bluesq.pro",
+    reply_to:
+      input.replyTo || process.env.MAIL_REPLY_TO || "support@bluesq.pro",
   } as any;
 
   const res = await fetch("https://api.resend.com/emails", {
@@ -40,6 +41,5 @@ export async function sendEmail(input: SendEmailInput): Promise<{ id?: string }>
     throw new Error(`Resend API error ${res.status}: ${errText}`);
   }
 
-  const json = (await res.json()) as { id?: string };
-  return json;
+  return (await res.json()) as { id?: string };
 }

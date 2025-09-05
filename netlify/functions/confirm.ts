@@ -1,7 +1,6 @@
 import { error, handleCors, HandlerEvent, parseJSONBody } from "./_utils/http";
-import { StripeCheckoutRequest } from "../../server/routes/stripe.ts";
-import { handleCheckoutConfirm } from "../../server/routes/checkout";
-import { initDB } from "../../server/db";
+import { StripeCheckoutRequest } from "../../server";
+import { handleCheckoutConfirm } from "../../server";
 
 
 export const handler = async (event: HandlerEvent) => {

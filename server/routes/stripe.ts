@@ -2,6 +2,7 @@
 import Stripe from "stripe";
 import { ok, error } from "../../netlify/functions/_utils/http.ts";
 
+// @ts-ignore
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
   apiVersion: "2024-06-20",
 });
@@ -32,7 +33,7 @@ export type StripeCheckoutRequest = {
   paymentPlan: "full" | "monthly"; // default: "full"
   selectedService?: string; // kept for backward compatibility
   addOns?: AddOnInput[];
-  total?: number; // optional if you want server to compute
+  total?: number; // optional if you want a server to compute
   customer: {
     firstName: string;
     lastName: string;

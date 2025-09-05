@@ -295,6 +295,6 @@ export async function handleCheckoutConfirm(req: StripeCheckoutRequest) {
   } catch (err: any) {
     console.error("[checkout] db insert error:", err?.message || err);
   }
-
+  console.info("[checkout] email sent: ok!");
   return ok(emailed);
 }
