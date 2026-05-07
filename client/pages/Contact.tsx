@@ -13,6 +13,7 @@ import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { Checkbox } from "@/components/ui/checkbox";
 import {
   Phone,
   Mail,
@@ -34,6 +35,7 @@ export default function Contact() {
     name: "",
     email: "",
     help: "",
+    smsConsent: false,
   });
 
   const handleInputChange = (field: string, value: string) => {
@@ -43,7 +45,7 @@ export default function Contact() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     alert("Thanks! We'll reach out within 24 hours with next steps.");
-    setFormData({ name: "", email: "", help: "" });
+    setFormData({ name: "", email: "", help: "", smsConsent: false });
   };
 
   return (
@@ -113,11 +115,47 @@ export default function Contact() {
                       placeholder="Tell us what you need help with..."
                     />
                   </div>
+                  <div className="flex items-start space-x-3 p-3 bg-blue-50 rounded-lg">
+                    <Checkbox
+                      id="smsConsent"
+                      checked={formData.smsConsent}
+                      onCheckedChange={(checked) =>
+                        setFormData((prev) => ({
+                          ...prev,
+                          smsConsent: checked as boolean,
+                        }))
+                      }
+                      required
+                    />
+                    <Label
+                      htmlFor="smsConsent"
+                      className="text-sm cursor-pointer leading-relaxed"
+                    >
+                      I agree to receive automated text messages from BSQ Financials at the number provided. Consent is not a condition of purchase. Message frequency varies. Message and data rates may apply. Reply STOP to unsubscribe or HELP for help. View our{" "}
+                      <a
+                        href="/privacy-policy"
+                        className="text-brand-blue hover:underline font-semibold"
+                      >
+                        Privacy Policy
+                      </a>{" "}
+                      and{" "}
+                      <a
+                        href="/sms-terms"
+                        className="text-brand-blue hover:underline font-semibold"
+                      >
+                        SMS Terms
+                      </a>
+                      .
+                    </Label>
+                  </div>
                   <Button
                     type="submit"
                     className="w-full bg-gradient-to-r from-brand-blue-light to-brand-blue-dark"
                     disabled={
-                      !formData.name || !formData.email || !formData.help
+                      !formData.name ||
+                      !formData.email ||
+                      !formData.help ||
+                      !formData.smsConsent
                     }
                   >
                     Send Message

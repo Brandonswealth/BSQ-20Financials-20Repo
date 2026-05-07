@@ -5,38 +5,61 @@ export default function PrivacyPolicy() {
   return (
     <div className="min-h-screen">
       <Header />
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4 max-w-3xl">
-          <h1 className="text-3xl font-bold mb-6">Privacy Policy</h1>
-          <div className="prose max-w-none">
-            <p>
-              We respect your privacy. We collect only the information necessary
-              to provide our services and communicate with you. We do not sell
-              your data.
-            </p>
-            <h2>Information We Collect</h2>
-            <p>
-              Contact details you provide (name, email, phone), service
-              preferences, and communications with us.
-            </p>
-            <h2>How We Use Information</h2>
-            <p>
-              To deliver services, process inquiries and payments, improve our
-              offerings, and comply with legal obligations.
-            </p>
-            <h2>Security</h2>
-            <p>
-              We use industry-standard safeguards to protect your information.
-            </p>
-            <h2>Your Choices</h2>
-            <p>
-              You may request access, correction, or deletion of your
-              information at any time by contacting support@bluesq.pro.
-            </p>
-            <p>Effective date: {new Date().getFullYear()}.</p>
-          </div>
-        </div>
-      </section>
+      <div style={{ maxWidth: "900px", margin: "auto", padding: "40px", fontFamily: "Arial", lineHeight: "1.7" }}>
+        <h1>BSQ Financials SMS Privacy Policy</h1>
+
+        <h2>Mobile Messaging Privacy</h2>
+        <p>
+          BSQ Financials is committed to protecting your privacy. This section explains how we collect, use, and safeguard information related to our SMS messaging services.
+        </p>
+
+        <h2>Information We Collect</h2>
+        <ul>
+          <li>Your mobile phone number</li>
+          <li>Your opt-in preferences and consent records</li>
+          <li>A history of messages sent to and received from your device</li>
+        </ul>
+
+        <h2>How We Use Your Information</h2>
+        <p>We use your information solely to provide services you requested, including:</p>
+
+        <ul>
+          <li>Account alerts</li>
+          <li>Two-factor authentication</li>
+          <li>Payment reminders</li>
+          <li>Financial updates</li>
+          <li>Appointment confirmations</li>
+        </ul>
+
+        <h2>Third-Party Sharing</h2>
+
+        <p>
+          No mobile information will be shared with third parties or affiliates for marketing or promotional purposes.
+        </p>
+
+        <p>
+          All other categories exclude text messaging originator opt-in data and consent; this information will not be shared with any third parties except as required by law.
+        </p>
+
+        <h2>Your Choices &amp; Opt-Out</h2>
+
+        <p>
+          You may opt out of receiving SMS messages from BSQ Financials at any time by replying STOP to any message you receive.
+        </p>
+
+        <p>
+          After texting STOP, you will receive one final confirmation message and no further SMS messages will be sent unless you opt in again.
+        </p>
+
+        <p>
+          For assistance, reply HELP or contact us directly:
+        </p>
+
+        <p>
+          Phone: (888) 651-9714<br />
+          Email: support@bsqfinancials.pro
+        </p>
+      </div>
       <Footer />
     </div>
   );
