@@ -126,6 +126,15 @@ export function Footer() {
             <a href="/disclaimer" className="hover:text-brand-blue">
               Disclaimer
             </a>
+            <a href="/privacy-policy" className="hover:text-brand-blue">
+              Privacy Policy
+            </a>
+            <a href="/sms-terms" className="hover:text-brand-blue">
+              SMS Terms
+            </a>
+            <a href="/terms-and-conditions" className="hover:text-brand-blue">
+              Terms & Conditions
+            </a>
           </div>
         </div>
       </div>
