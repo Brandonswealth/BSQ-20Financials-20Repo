@@ -16,6 +16,9 @@ import Contact from "./pages/Contact";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
 import Disclaimer from "./pages/Disclaimer";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import SMSTerms from "./pages/SMSTerms";
+import TermsAndConditions from "./pages/TermsAndConditions";
 import FinancialPlanning from "./pages/FinancialPlanning";
 import DebtConsolidation from "./pages/DebtConsolidation";
 import BusinessConsulting from "./pages/BusinessConsulting";
@@ -40,6 +43,9 @@ const App = () => (
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="/disclaimer" element={<Disclaimer />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/sms-terms" element={<SMSTerms />} />
+          <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
           <Route path="/financial-planning" element={<FinancialPlanning />} />
           <Route path="/debt-consolidation" element={<DebtConsolidation />} />
           <Route path="/business-consulting" element={<BusinessConsulting />} />
