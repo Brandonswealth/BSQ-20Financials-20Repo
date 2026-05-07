@@ -98,7 +98,7 @@ export function Footer() {
               </div>
               <div className="flex items-center space-x-2">
                 <Mail size={16} />
-                <span>support@bsqcapitalsolutions.pro</span>
+                <span>support@bluesq.co</span>
               </div>
               <div className="flex items-start space-x-2">
                 <MapPin size={16} className="mt-1" />

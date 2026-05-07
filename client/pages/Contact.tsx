@@ -236,7 +236,7 @@ export default function Contact() {
                   </CardHeader>
                   <CardContent>
                     <p className="text-lg font-bold text-brand-blue">
-                      support@bsqcapitalsolutions.pro
+                      support@bluesq.co
                     </p>
                   </CardContent>
                 </Card>

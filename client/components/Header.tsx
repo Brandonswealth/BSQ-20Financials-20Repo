@@ -17,7 +17,7 @@ export function Header() {
             </div>
             <div className="flex items-center space-x-2">
               <Mail size={14} />
-              <span>support@bsqcapitalsolutions.pro</span>
+              <span>support@bluesq.co</span>
             </div>
           </div>
           <div className="hidden md:block">
