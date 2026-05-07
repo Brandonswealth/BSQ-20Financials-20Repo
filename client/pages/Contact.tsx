@@ -26,7 +26,7 @@ import {
 } from "lucide-react";
 
 const CALENDLY = "https://calendly.com/brandonswealth/15min";
-const PHONE = "888-305-9390";
+const PHONE = "888-651-9714";
 const ADDRESS_LINE = "1050 E Flamingo Rd, S107";
 const ADDRESS_CITY = "Las Vegas, Nevada 89119";
 
@@ -57,7 +57,7 @@ export default function Contact() {
             Get In Touch
           </Badge>
           <h1 className="text-4xl lg:text-5xl font-bold mb-6">
-            Contact BSQ Financials
+            Contact BSQ Capital Solutions
           </h1>
           <p className="text-xl text-blue-100 max-w-2xl mx-auto">
             Tell us what you need help with and our team will follow up quickly.
@@ -236,7 +236,7 @@ export default function Contact() {
                   </CardHeader>
                   <CardContent>
                     <p className="text-lg font-bold text-brand-blue">
-                      support@bluesq.pro
+                      support@bsqcapitalsolutions.pro
                     </p>
                   </CardContent>
                 </Card>

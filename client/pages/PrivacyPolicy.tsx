@@ -6,11 +6,11 @@ export default function PrivacyPolicy() {
     <div className="min-h-screen">
       <Header />
       <div style={{ maxWidth: "900px", margin: "auto", padding: "40px", fontFamily: "Arial", lineHeight: "1.7" }}>
-        <h1>BSQ Financials SMS Privacy Policy</h1>
+        <h1>BSQ Capital Solutions SMS Privacy Policy</h1>
 
         <h2>Mobile Messaging Privacy</h2>
         <p>
-          BSQ Financials is committed to protecting your privacy. This section explains how we collect, use, and safeguard information related to our SMS messaging services.
+          BSQ Capital Solutions is committed to protecting your privacy. This section explains how we collect, use, and safeguard information related to our SMS messaging services.
         </p>
 
         <h2>Information We Collect</h2>
@@ -44,7 +44,7 @@ export default function PrivacyPolicy() {
         <h2>Your Choices &amp; Opt-Out</h2>
 
         <p>
-          You may opt out of receiving SMS messages from BSQ Financials at any time by replying STOP to any message you receive.
+          You may opt out of receiving SMS messages from BSQ Capital Solutions at any time by replying STOP to any message you receive.
         </p>
 
         <p>

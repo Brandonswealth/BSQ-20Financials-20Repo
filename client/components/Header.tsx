@@ -13,11 +13,11 @@ export function Header() {
           <div className="flex items-center space-x-6">
             <div className="flex items-center space-x-2">
               <Phone size={14} />
-              <span>888-305-9390</span>
+              <span>888-651-9714</span>
             </div>
             <div className="flex items-center space-x-2">
               <Mail size={14} />
-              <span>support@bluesq.pro</span>
+              <span>support@bsqcapitalsolutions.pro</span>
             </div>
           </div>
           <div className="hidden md:block">
@@ -34,13 +34,13 @@ export function Header() {
             <div className="w-10 h-10 rounded-lg flex items-center justify-center">
               <img
                 src="https://cdn.builder.io/api/v1/image/assets%2F73cef5d45d4148daa57a98053c90e59f%2Fe10a085771f24e478a2d38f0d8c608b0?format=webp&width=800"
-                alt="BSQ Financials"
+                alt="BSQ Capital Solutions"
                 className="w-10 h-10 object-contain"
               />
             </div>
             <div>
               <h1 className="text-xl font-bold text-gray-900 group-hover:text-brand-blue">
-                BSQ Financials
+                BSQ Capital Solutions
               </h1>
               <p className="text-xs text-gray-600">Building Made Smart</p>
             </div>

@@ -12,7 +12,7 @@ export default function TermsAndConditions() {
             <p>By using our website and services, you agree to these terms and conditions.</p>
             <h2>Services Description</h2>
             <p>
-              BSQ Financials provides credit and business financial services as
+              BSQ Capital Solutions provides credit and business financial services as
               described on our website. Deliverables and timelines may vary based
               on your individual circumstances.
             </p>
@@ -36,14 +36,14 @@ export default function TermsAndConditions() {
             </p>
             <h2>Limitation of Liability</h2>
             <p>
-              To the fullest extent permitted by law, BSQ Financials and its
+              To the fullest extent permitted by law, BSQ Capital Solutions and its
               owners are not liable for indirect, incidental, special, or
               consequential damages.
             </p>
             <h2>Intellectual Property</h2>
             <p>
               All content on our website, including text, graphics, and materials,
-              is the property of BSQ Financials or its content suppliers and is
+              is the property of BSQ Capital Solutions or its content suppliers and is
               protected by copyright.
             </p>
             <h2>Modifications</h2>

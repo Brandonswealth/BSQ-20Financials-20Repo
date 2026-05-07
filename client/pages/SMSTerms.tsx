@@ -6,12 +6,12 @@ export default function SMSTerms() {
     <div className="min-h-screen">
       <Header />
       <div style={{ maxWidth: "900px", margin: "auto", padding: "40px", fontFamily: "Arial", lineHeight: "1.7" }}>
-        <h1>BSQ Financials SMS Terms &amp; Conditions</h1>
+        <h1>BSQ Capital Solutions SMS Terms &amp; Conditions</h1>
 
         <h2>1. Program Description</h2>
 
         <p>
-          BSQ Financials provides SMS communications for:
+          BSQ Capital Solutions provides SMS communications for:
         </p>
 
         <ul>
@@ -26,7 +26,7 @@ export default function SMSTerms() {
         <h2>2. User Opt-In</h2>
 
         <p>
-          By providing your mobile number and opting in through our website, forms, or verbal consent, you agree to receive text messages from BSQ Financials.
+          By providing your mobile number and opting in through our website, forms, or verbal consent, you agree to receive text messages from BSQ Capital Solutions.
         </p>
 
         <p>

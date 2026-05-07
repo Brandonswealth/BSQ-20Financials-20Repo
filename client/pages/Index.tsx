@@ -262,7 +262,7 @@ export default function Index() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold mb-4">
-              Why Choose BSQ Financials?
+              Why Choose BSQ Capital Solutions?
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
               We combine expertise, technology, and personalized service to
@@ -335,7 +335,7 @@ export default function Index() {
                   ))}
                 </div>
                 <p className="text-gray-600 mb-4">
-                  "BSQ Financials helped me improve my credit score by 150
+                  "BSQ Capital Solutions helped me improve my credit score by 150
                   points in just 6 months. Their team was professional and kept
                   me informed throughout the entire process."
                 </p>
@@ -397,7 +397,7 @@ export default function Index() {
                   ))}
                 </div>
                 <p className="text-gray-600 mb-4">
-                  "Professional, reliable, and results-driven. BSQ Financials
+                  "Professional, reliable, and results-driven. BSQ Capital Solutions
                   exceeded our expectations in every way. Highly recommended!"
                 </p>
                 <div className="flex items-center">
@@ -437,7 +437,7 @@ export default function Index() {
             >
               <a href="tel:8883059390">
                 <Phone className="mr-2 h-5 w-5" />
-                Call 888-305-9390
+                Call 888-651-9714
               </a>
             </Button>
             <Button

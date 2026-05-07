@@ -137,282 +137,300 @@ export default function CreditRepair() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold mb-4">
-              Choose Your Credit Repair Plan
+              Credit Profile Sweep Packages
             </h2>
             <p className="text-xl text-gray-600">
               Professional credit restoration packages tailored to your needs
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
-            {/* Basic Plan */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+            {/* Essential Sweep */}
             <Card className="relative border-2 border-green-500 shadow-lg">
               <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                <Badge className="bg-green-500 text-white">LIMITED TIME</Badge>
+                <Badge className="bg-green-500 text-white">STARTER</Badge>
               </div>
               <CardHeader className="text-center pb-6 pt-8">
-                <CardTitle className="text-2xl mb-2">BASIC PLAN</CardTitle>
-                <div className="space-y-2">
-                  <div className="text-4xl font-bold text-green-600">$297</div>
-                  <div className="text-lg text-gray-500 line-through">
-                    normally $450
-                  </div>
-                </div>
+                <CardTitle className="text-2xl mb-2">Essential Sweep</CardTitle>
+                <div className="text-4xl font-bold text-green-600">$297</div>
                 <CardDescription className="text-lg">
-                  Perfect for quick credit improvements
+                  Quick credit improvements
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <ul className="space-y-3 mb-6">
                   <li className="flex items-center">
                     <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
-                    Hard inquiry removal
+                    Up to 3 negative items addressed
                   </li>
                   <li className="flex items-center">
                     <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
-                    Credit boost strategies
+                    Credit profile analysis
                   </li>
                   <li className="flex items-center">
                     <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
-                    Access to BlueSQ Financials client portal
+                    Strategy recommendations for score improvement
                   </li>
                   <li className="flex items-center">
                     <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
-                    30-day money-back guarantee
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
-                    Email support
+                    Hard inquiry review (up to 2)
                   </li>
                 </ul>
                 <Button
                   className="w-full bg-green-600 hover:bg-green-700"
                   asChild
                 >
-                  <a href="/checkout?service=basic-credit">
-                    Select Basic Plan
+                  <a href="/checkout?service=essential-sweep">
+                    Get Started
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </a>
                 </Button>
               </CardContent>
             </Card>
 
-            {/* Essentials Plan */}
-            <Card className="relative border-2 border-brand-blue shadow-lg">
+            {/* Standard Credit Sweep */}
+            <Card className="relative border-2 border-blue-500 shadow-lg">
               <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                <Badge className="bg-brand-blue text-white">MOST POPULAR</Badge>
+                <Badge className="bg-blue-500 text-white">POPULAR</Badge>
               </div>
               <CardHeader className="text-center pb-6 pt-8">
-                <CardTitle className="text-2xl mb-2">
-                  ESSENTIALS CREDIT PLAN
-                </CardTitle>
-                <div className="text-4xl font-bold text-brand-blue">$499</div>
+                <CardTitle className="text-2xl mb-2">Standard Credit Sweep</CardTitle>
+                <div className="text-4xl font-bold text-blue-600">$500</div>
                 <CardDescription className="text-lg">
-                  Comprehensive credit evaluation and strategy
+                  Comprehensive credit evaluation
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <ul className="space-y-3 mb-6">
                   <li className="flex items-center">
                     <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
-                    Full credit evaluation from all 3 bureaus
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="h-5 w-5 text-green-500 mr-3" />1
-                    primary tradeline
+                    Up to 5 negative items addressed
                   </li>
                   <li className="flex items-center">
                     <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
-                    Credit strategy for funding preparation
+                    Collections, charge-offs, and inquiries
                   </li>
                   <li className="flex items-center">
                     <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
-                    Monthly progress reports
+                    Full credit profile review and strategy
                   </li>
                   <li className="flex items-center">
                     <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
-                    Phone + email support
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
-                    Credit education materials
+                    Ongoing support and monitoring
                   </li>
                 </ul>
                 <Button
                   className="w-full bg-gradient-to-r from-brand-blue-light to-brand-blue-dark"
                   asChild
                 >
-                  <a href="/checkout?service=essentials-credit">
-                    Select Essentials Plan
+                  <a href="/checkout?service=standard-sweep">
+                    Select Plan
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </a>
                 </Button>
               </CardContent>
             </Card>
 
-            {/* Premium Plan */}
+            {/* Advanced Credit Sweep */}
             <Card className="relative border-2 border-purple-500 shadow-lg">
               <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                <Badge className="bg-purple-500 text-white">PREMIUM</Badge>
+                <Badge className="bg-purple-500 text-white">ADVANCED</Badge>
               </div>
               <CardHeader className="text-center pb-6 pt-8">
-                <CardTitle className="text-2xl mb-2">
-                  PREMIUM CREDIT SWEEP
-                </CardTitle>
-                <div className="space-y-2">
-                  <div className="text-3xl font-bold text-purple-600">
-                    $2,500
-                  </div>
-                  <div className="text-lg text-gray-600">or $599/mo x5</div>
-                </div>
+                <CardTitle className="text-2xl mb-2">Advanced Credit Sweep</CardTitle>
+                <div className="text-4xl font-bold text-purple-600">$1,000</div>
                 <CardDescription className="text-lg">
-                  Complete credit restoration package
+                  Comprehensive transformation
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <ul className="space-y-3 mb-6">
-                  <li className="flex items-start">
-                    <CheckCircle className="h-5 w-5 text-green-500 mr-3 mt-0.5" />
-                    <span>
-                      Complete removal of: Collections, evictions,
-                      repossessions, old phone bills, medical debt, student
-                      loans
-                    </span>
-                  </li>
                   <li className="flex items-center">
-                    <CheckCircle className="h-5 w-5 text-green-500 mr-3" />5
-                    premium tradelines
+                    <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                    Up to 10 negative items addressed
                   </li>
                   <li className="flex items-center">
                     <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
-                    Full credit sweep + client portal
+                    Collections and charge-offs
                   </li>
                   <li className="flex items-center">
                     <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
-                    Dedicated 1-on-1 specialist support
+                    Hard inquiry strategy
                   </li>
                   <li className="flex items-center">
                     <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
-                    Weekly progress updates
+                    Creditor goodwill letters when appropriate
                   </li>
                   <li className="flex items-center">
                     <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
-                    Priority dispute processing
+                    Priority processing
                   </li>
                 </ul>
                 <Button
                   className="w-full bg-purple-600 hover:bg-purple-700"
                   asChild
                 >
-                  <a href="/checkout?service=premium-credit">
-                    Select Premium Plan
+                  <a href="/checkout?service=advanced-sweep">
+                    Select Plan
                     <ArrowRight className="ml-2 h-4 w-4" />
+                  </a>
+                </Button>
+              </CardContent>
+            </Card>
+
+            {/* Elite Credit Transformation */}
+            <Card className="relative border-2 border-gold shadow-xl" style={{ borderColor: "#FFD700" }}>
+              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                <Badge className="text-black" style={{ backgroundColor: "#FFD700" }}>
+                  ELITE
+                </Badge>
+              </div>
+              <CardHeader className="text-center pb-6 pt-8">
+                <Award className="h-12 w-12 mx-auto mb-4" style={{ color: "#FFD700" }} />
+                <CardTitle className="text-2xl mb-2">Elite Credit Transformation</CardTitle>
+                <div className="text-4xl font-bold" style={{ color: "#FFD700" }}>$2,500</div>
+                <CardDescription className="text-lg">
+                  Complete credit restoration
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-3 mb-6">
+                  <li className="flex items-center">
+                    <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                    Up to 25 negative items addressed
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                    Advanced dispute strategy
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                    Credit utilization optimization plan
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                    Private strategy sessions
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                    Two complimentary premium services included
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                    90-day priority service
+                  </li>
+                </ul>
+                <Button
+                  className="w-full text-black hover:opacity-90 text-lg py-6"
+                  style={{ backgroundColor: "#FFD700" }}
+                  asChild
+                >
+                  <a href="/checkout?service=elite-transformation">
+                    Get Elite Package
+                    <ArrowRight className="ml-2 h-5 w-5" />
                   </a>
                 </Button>
               </CardContent>
             </Card>
           </div>
 
-          {/* Done For You Package */}
-          <Card
-            className="relative border-2 border-gold shadow-xl"
-            style={{ borderColor: "#FFD700" }}
-          >
-            <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-              <Badge
-                className="text-black"
-                style={{ backgroundColor: "#FFD700" }}
-              >
-                RECOMMENDED
-              </Badge>
+          {/* Premium Specialty Services */}
+          <div className="mt-16">
+            <h3 className="text-2xl font-bold text-center mb-8">Premium Specialty Services</h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <Card>
+                <CardHeader>
+                  <CardTitle className="text-lg">Eviction Processing</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-2xl font-bold text-brand-blue">$400 - $800</p>
+                </CardContent>
+              </Card>
+              <Card>
+                <CardHeader>
+                  <CardTitle className="text-lg">Repossession Strategy</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-2xl font-bold text-brand-blue">$400 - $900</p>
+                </CardContent>
+              </Card>
+              <Card>
+                <CardHeader>
+                  <CardTitle className="text-lg">Student Loan Strategy</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-2xl font-bold text-brand-blue">$200 - $500</p>
+                </CardContent>
+              </Card>
             </div>
-            <CardHeader className="text-center pb-6 pt-8">
-              <Award
-                className="h-12 w-12 mx-auto mb-4"
-                style={{ color: "#FFD700" }}
-              />
-              <CardTitle className="text-3xl mb-2">
-                DONE FOR YOU PACKAGE
-              </CardTitle>
-              <div className="space-y-2">
-                <div
-                  className="text-4xl font-bold"
-                  style={{ color: "#FFD700" }}
-                >
-                  $3,997
-                </div>
-                <div className="text-lg text-gray-600">or $999/mo x4</div>
-              </div>
-              <CardDescription className="text-xl">
-                Complete financial transformation - we handle everything
+          </div>
+
+          {/* Funding Readiness */}
+          <Card className="mt-12 border-2 border-brand-blue">
+            <CardHeader>
+              <CardTitle>Funding Readiness Strategy</CardTitle>
+              <CardDescription>
+                Prepare for major approvals: business funding, auto loans, or mortgage applications
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+              <div className="space-y-4">
                 <div>
-                  <h4 className="font-semibold mb-3 text-brand-blue">
-                    Credit Repair Includes:
-                  </h4>
-                  <ul className="space-y-2 text-sm">
-                    <li className="flex items-center">
-                      <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                      Complete credit sweep (all negative items)
-                    </li>
-                    <li className="flex items-center">
-                      <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                      10 premium tradelines
-                    </li>
-                    <li className="flex items-center">
-                      <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                      Daily credit monitoring
-                    </li>
-                    <li className="flex items-center">
-                      <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                      Identity theft protection
-                    </li>
-                  </ul>
+                  <p className="text-3xl font-bold text-brand-blue">$750 - $1,500</p>
+                  <p className="text-gray-600 mt-2">Includes:</p>
                 </div>
-                <div>
-                  <h4 className="font-semibold mb-3 text-brand-blue">
-                    Bonus Services:
-                  </h4>
-                  <ul className="space-y-2 text-sm">
-                    <li className="flex items-center">
-                      <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                      Personal financial coaching (6 sessions)
-                    </li>
-                    <li className="flex items-center">
-                      <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                      Debt consolidation strategy
-                    </li>
-                    <li className="flex items-center">
-                      <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                      Credit-building action plan
-                    </li>
-                    <li className="flex items-center">
-                      <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                      Lifetime access to resources
-                    </li>
-                  </ul>
-                </div>
+                <ul className="space-y-2">
+                  <li className="flex items-center">
+                    <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                    Full funding analysis
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                    Utilization optimization plan
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                    Lender targeting strategy
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                    Private strategy consultation
+                  </li>
+                </ul>
               </div>
-              <div className="bg-gray-50 p-4 rounded-lg mb-6">
-                <p className="text-center font-medium text-brand-blue">
-                  🎯 Our Guarantee: 100+ point improvement or full refund
-                </p>
-              </div>
-              <Button
-                className="w-full text-black hover:opacity-90 text-lg py-6"
-                style={{ backgroundColor: "#FFD700" }}
-                asChild
-              >
-                <a href="/checkout?service=done-for-you-credit">
-                  Get Complete Transformation
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </a>
-              </Button>
             </CardContent>
           </Card>
+
+          {/* Monthly Management Plans */}
+          <div className="mt-12">
+            <h3 className="text-2xl font-bold text-center mb-8">Credit Profile Management (Monthly)</h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <Card>
+                <CardHeader>
+                  <CardTitle className="text-lg">Credit Guard</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-3xl font-bold text-brand-blue">$79<span className="text-lg">/mo</span></p>
+                </CardContent>
+              </Card>
+              <Card>
+                <CardHeader>
+                  <CardTitle className="text-lg">Credit Optimize</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-3xl font-bold text-brand-blue">$129<span className="text-lg">/mo</span></p>
+                </CardContent>
+              </Card>
+              <Card>
+                <CardHeader>
+                  <CardTitle className="text-lg">Credit Wealth Builder</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-3xl font-bold text-brand-blue">$229<span className="text-lg">/mo</span></p>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -472,7 +490,7 @@ export default function CreditRepair() {
           </h2>
           <p className="text-xl mb-8 text-blue-100 max-w-2xl mx-auto">
             Join thousands of satisfied customers who have improved their credit
-            scores with BlueSQ Financials
+            scores with BSQ Capital Solutions
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
