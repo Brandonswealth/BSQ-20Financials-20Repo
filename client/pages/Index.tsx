@@ -463,6 +463,16 @@ export default function Index() {
                 <ArrowRight className="ml-2 h-5 w-5" />
               </a>
             </Button>
+            <Button
+              size="lg"
+              className="bg-white text-brand-blue hover:bg-gray-100"
+              asChild
+            >
+              <a href="/client-results">
+                See Client Results
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </a>
+            </Button>
           </div>
         </div>
       </section>
