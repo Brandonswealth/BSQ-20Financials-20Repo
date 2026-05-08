@@ -435,7 +435,7 @@ export default function Index() {
               className="bg-white text-brand-blue hover:bg-gray-100"
               asChild
             >
-              <a href="tel:8883059390">
+              <a href="tel:8883009390">
                 <Phone className="mr-2 h-5 w-5" />
                 Call 888-651-9714
               </a>
@@ -451,6 +451,16 @@ export default function Index() {
                 rel="noopener noreferrer"
               >
                 Schedule Free Consultation
+              </a>
+            </Button>
+            <Button
+              size="lg"
+              className="bg-white text-brand-blue hover:bg-gray-100"
+              asChild
+            >
+              <a href="/cfo-services">
+                Explore CFO Services
+                <ArrowRight className="ml-2 h-5 w-5" />
               </a>
             </Button>
           </div>
