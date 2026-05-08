@@ -67,6 +67,12 @@ export function Header() {
               CFO Services
             </a>
             <a
+              href="/client-results"
+              className="text-gray-700 hover:text-brand-blue font-medium"
+            >
+              Results
+            </a>
+            <a
               href="/about"
               className="text-gray-700 hover:text-brand-blue font-medium"
             >
@@ -122,6 +128,12 @@ export function Header() {
                 className="text-gray-700 hover:text-brand-blue font-medium"
               >
                 CFO Services
+              </a>
+              <a
+                href="/client-results"
+                className="text-gray-700 hover:text-brand-blue font-medium"
+              >
+                Results
               </a>
               <a
                 href="/about"
