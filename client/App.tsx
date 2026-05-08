@@ -22,6 +22,7 @@ import TermsAndConditions from "./pages/TermsAndConditions";
 import FinancialPlanning from "./pages/FinancialPlanning";
 import DebtConsolidation from "./pages/DebtConsolidation";
 import BusinessConsulting from "./pages/BusinessConsulting";
+import ClientResults from "./pages/ClientResults";
 import AdminOrders from "./pages/admin/Orders";
 
 const queryClient = new QueryClient();
@@ -49,6 +50,7 @@ const App = () => (
           <Route path="/financial-planning" element={<FinancialPlanning />} />
           <Route path="/debt-consolidation" element={<DebtConsolidation />} />
           <Route path="/business-consulting" element={<BusinessConsulting />} />
+          <Route path="/client-results" element={<ClientResults />} />
           <Route path="/admin/orders" element={<AdminOrders />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
