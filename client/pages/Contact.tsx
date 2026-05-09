@@ -57,7 +57,7 @@ export default function Contact() {
             Get In Touch
           </Badge>
           <h1 className="text-4xl lg:text-5xl font-bold mb-6">
-            Contact BSQ Capital Solutions
+            Contact BlueSQ Capital Solutions
           </h1>
           <p className="text-xl text-blue-100 max-w-2xl mx-auto">
             Tell us what you need help with and our team will follow up quickly.

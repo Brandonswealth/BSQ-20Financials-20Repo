@@ -490,7 +490,7 @@ export default function CreditRepair() {
           </h2>
           <p className="text-xl mb-8 text-blue-100 max-w-2xl mx-auto">
             Join thousands of satisfied customers who have improved their credit
-            scores with BSQ Capital Solutions
+            scores with BlueSQ Capital Solutions
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button

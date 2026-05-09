@@ -11,12 +11,12 @@ export function Footer() {
               <div className="w-10 h-10 rounded-lg flex items-center justify-center">
                 <img
                   src="https://cdn.builder.io/api/v1/image/assets%2F73cef5d45d4148daa57a98053c90e59f%2Fe10a085771f24e478a2d38f0d8c608b0?format=webp&width=800"
-                  alt="BSQ Capital Solutions"
+                  alt="BlueSQ Capital Solutions"
                   className="w-10 h-10 object-contain"
                 />
               </div>
               <div>
-                <h3 className="text-xl font-bold">BSQ Capital Solutions</h3>
+                <h3 className="text-xl font-bold">BlueSQ Capital Solutions</h3>
                 <p className="text-sm text-gray-400">Building Made Smart</p>
               </div>
             </a>
@@ -114,7 +114,7 @@ export function Footer() {
 
         <div className="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 text-sm">
-            © 2024 BSQ Capital Solutions. All rights reserved.
+            © 2024 BlueSQ Capital Solutions. All rights reserved.
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0 text-sm text-gray-400">
             <a href="/privacy" className="hover:text-brand-blue">

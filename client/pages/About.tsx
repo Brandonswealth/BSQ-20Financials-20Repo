@@ -30,7 +30,7 @@ export default function About() {
       <section className="bg-gradient-to-r from-brand-blue-light to-brand-blue-dark text-white py-20">
         <div className="container mx-auto px-4 text-center">
           <Badge className="bg-white/20 text-white border-white/30 mb-4">
-            About BSQ Capital Solutions
+            About BlueSQ Capital Solutions
           </Badge>
           <h1 className="text-4xl lg:text-5xl font-bold mb-6">
             Building Stronger Credit & Smarter Futures
@@ -56,7 +56,7 @@ export default function About() {
 
             <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
               <p className="text-xl mb-8">
-                At BSQ Capital Solutions, we specialize in personal credit repair,
+                At BlueSQ Capital Solutions, we specialize in personal credit repair,
                 business funding, strategic planning, and financial guidance
                 designed to meet you exactly where you are today.
               </p>
@@ -81,7 +81,7 @@ export default function About() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold mb-4">
-              What Makes BSQ Capital Solutions Different
+              What Makes BlueSQ Capital Solutions Different
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Our focus on empowerment sets us apart from traditional financial
@@ -256,7 +256,7 @@ export default function About() {
               <p className="text-xl leading-relaxed">
                 No matter your situation, our goal is to help you achieve
                 stability, growth, and confidence in your financial journey. At
-                BSQ Capital Solutions, your future is our priority. Together, we build
+                BlueSQ Capital Solutions, your future is our priority. Together, we build
                 stronger credit, smarter funding, and better opportunities.
               </p>
             </div>

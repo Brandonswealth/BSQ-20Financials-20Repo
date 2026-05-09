@@ -262,7 +262,7 @@ export default function Index() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold mb-4">
-              Why Choose BSQ Capital Solutions?
+              Why Choose BlueSQ Capital Solutions?
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
               We combine expertise, technology, and personalized service to
@@ -335,7 +335,7 @@ export default function Index() {
                   ))}
                 </div>
                 <p className="text-gray-600 mb-4">
-                  "BSQ Capital Solutions helped me improve my credit score by 150
+                  "BlueSQ Capital Solutions helped me improve my credit score by 150
                   points in just 6 months. Their team was professional and kept
                   me informed throughout the entire process."
                 </p>
@@ -397,7 +397,7 @@ export default function Index() {
                   ))}
                 </div>
                 <p className="text-gray-600 mb-4">
-                  "Professional, reliable, and results-driven. BSQ Capital Solutions
+                  "Professional, reliable, and results-driven. BlueSQ Capital Solutions
                   exceeded our expectations in every way. Highly recommended!"
                 </p>
                 <div className="flex items-center">

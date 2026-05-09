@@ -38,7 +38,7 @@ export default function ClientResults() {
       scoreLabel: "FUNDED",
       improvement: "Business Secured",
       image: "https://cdn.builder.io/api/v1/image/assets%2F73cef5d45d4148daa57a98053c90e59f%2F2deda91ed4f14b93a85d795ce8340402?format=webp&width=800&height=1200",
-      testimonial: "Thanks to BSQ Capital Solutions' preparation and strategy, my business got approved for the funding we needed to scale.",
+      testimonial: "Thanks to BlueSQ Capital Solutions' preparation and strategy, my business got approved for the funding we needed to scale.",
     },
     {
       title: "Fair Credit Achievement",
@@ -82,7 +82,7 @@ export default function ClientResults() {
             </Badge>
             <h1 className="text-4xl lg:text-6xl font-bold mb-6 leading-tight">
               See What's Possible
-              <span className="block text-yellow-300">With BSQ Capital Solutions</span>
+              <span className="block text-yellow-300">With BlueSQ Capital Solutions</span>
             </h1>
             <p className="text-xl mb-8 text-blue-100">
               Thousands of clients have transformed their credit profiles and

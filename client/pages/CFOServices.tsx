@@ -620,7 +620,7 @@ export default function CFOServices() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold mb-4">
-              Why Choose BSQ Capital Solutions?
+              Why Choose BlueSQ Capital Solutions?
             </h2>
             <p className="text-xl text-gray-600">
               The difference that drives your success
@@ -698,7 +698,7 @@ export default function CFOServices() {
             Ready To Build Your Business The Right Way?
           </h2>
           <p className="text-xl mb-8 text-blue-100 max-w-2xl mx-auto">
-            Book a free consultation with BSQ Capital Solutions today.
+            Book a free consultation with BlueSQ Capital Solutions today.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
             <Button
