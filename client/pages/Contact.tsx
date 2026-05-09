@@ -131,7 +131,7 @@ export default function Contact() {
                       htmlFor="smsConsent"
                       className="text-sm cursor-pointer leading-relaxed"
                     >
-                      I agree to receive automated text messages from BSQ Financials at the number provided. Consent is not a condition of purchase. Message frequency varies. Message and data rates may apply. Reply STOP to unsubscribe or HELP for help. View our{" "}
+                      By checking this box, you agree to receive customer care text messages from BlueSQ Capital Solutions. You may reply STOP to opt-out at any time. Reply to HELP for assistance. Messages and data rates may apply. Message frequency will vary. Learn more on our{" "}
                       <a
                         href="/privacy-policy"
                         className="text-brand-blue hover:underline font-semibold"
@@ -143,9 +143,9 @@ export default function Contact() {
                         href="/sms-terms"
                         className="text-brand-blue hover:underline font-semibold"
                       >
-                        SMS Terms
-                      </a>
-                      .
+                        SMS Terms & Conditions
+                      </a>{" "}
+                      pages.
                     </Label>
                   </div>
                   <Button

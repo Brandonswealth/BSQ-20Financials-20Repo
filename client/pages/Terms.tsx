@@ -17,7 +17,7 @@ export default function Terms() {
             <h2>No Guarantee</h2>
             <p>We do not guarantee specific credit scores, funding amounts, or outcomes. Results depend on many factors outside our control.</p>
             <h2>Limitation of Liability</h2>
-            <p>To the fullest extent permitted by law, BSQ Financials is not liable for indirect or consequential damages.</p>
+            <p>To the fullest extent permitted by law, BlueSQ Capital Solutions is not liable for indirect or consequential damages.</p>
           </div>
         </div>
       </section>
